@@ -13,12 +13,15 @@ export default function App() {
       <View style={styles.secondaryBG}>
         <Text style={styles.text}>Yassine's Fitness Log</Text>
         <StatusBar style="light" />
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Wokrout Log</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Add Wokrout</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Wokrout Log</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Add Wokrout</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
   secondaryBG: {
     width: "85%",
     flex: 1,
-    // backgroundColor: "black",
+    backgroundColor: "black",
     alignItems: "center",
     justifyContent: "space-evenly",
     borderRadius: 30,
@@ -47,8 +50,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#8d99ae",
     borderRadius: 25,
     padding: 10,
+    margin:15
   },
   buttonText: {
     color: "#edf2f4",
   },
+  buttonContainer:{
+   flexDirection:"row",
+  //  backgroundColor:"white"
+  }
 });
