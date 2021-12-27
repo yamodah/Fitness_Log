@@ -14,7 +14,10 @@ export default function App() {
         <Text style={styles.text}>Yassine's Fitness Log</Text>
         <StatusBar style="light" />
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Log Wokrout</Text>
+          <Text style={styles.buttonText}>Wokrout Log</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Add Wokrout</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -24,28 +27,28 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "coral",
+    backgroundColor: "#2b2d42",
     alignItems: "center",
     justifyContent: "center",
   },
   secondaryBG: {
     width: "85%",
     flex: 1,
-    backgroundColor: "black",
+    // backgroundColor: "black",
     alignItems: "center",
     justifyContent: "space-evenly",
     borderRadius: 30,
   },
   text: {
-    color: "white",
+    color: "#edf2f4",
     fontSize: 20,
   },
   button: {
-    backgroundColor: "azure",
+    backgroundColor: "#8d99ae",
     borderRadius: 25,
     padding: 10,
   },
   buttonText: {
-    color: "black",
+    color: "#edf2f4",
   },
 });
