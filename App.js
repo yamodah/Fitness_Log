@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   secondaryBG: {
     width: "85%",
     flex: 1,
-    backgroundColor: "black",
+    // backgroundColor: "black",
     alignItems: "center",
     justifyContent: "space-evenly",
     borderRadius: 30,
