@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 
-const GeneralInfo = () => {
+const GeneralInfo = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
