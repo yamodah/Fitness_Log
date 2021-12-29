@@ -6,9 +6,18 @@ import Home from "./src/components/Home";
 
 export default function App() {
   return (
-    <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+    <NavigationContainer >
+    <Stack.Navigator >
+      <Stack.Screen name="Home" component={Home} options={{
+          title: 'Home',
+          headerStyle: {
+            backgroundColor: '#ef233c99',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
       {/* <Stack.Screen name="GeneralInfo" component={Notifications} />
       <Stack.Screen name="ResitanceTraining" component={Profile} />
       <Stack.Screen name="Sports" component={Settings} />
