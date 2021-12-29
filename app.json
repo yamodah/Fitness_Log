@@ -7,7 +7,7 @@
     "icon": "./src/assets/icon.png",
     "splash": {
       "image": "./src/assets/stencil-splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ef233c"
     },
     "updates": {
