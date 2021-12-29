@@ -18,7 +18,16 @@ export default function App() {
             fontWeight: 'bold',
           },
         }}/>
-        <Stack.Screen name="GeneralInfo" component={GeneralInfo} />
+        <Stack.Screen name="GeneralInfo" component={GeneralInfo} options={{
+          title: 'General Info',
+          headerStyle: {
+            backgroundColor: '#ef233c99',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
       {/* 
       <Stack.Screen name="ResitanceTraining" component={Profile} />
       <Stack.Screen name="Sports" component={Settings} />
