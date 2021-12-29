@@ -6,19 +6,19 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
         <View style={styles.secondaryBG}>
-          <Text style={styles.text}>Yassine's Fitness Log</Text>
+          <Text style={styles.text}>Fitness Log</Text>
           <StatusBar style="light" />
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Wokrout Log</Text>
+              <Text style={styles.buttonText}>Activity Log</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Add Wokrout</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("GeneralInfo")}}>
+              <Text style={styles.buttonText}>Add Activity</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -42,19 +42,25 @@ const styles = StyleSheet.create({
     },
     text: {
       color: "#edf2f4",
-      fontSize: 20,
+      fontSize: 50,
+      textAlign:"center"
     },
     button: {
-      backgroundColor: "#8d99ae",
-      borderRadius: 25,
+    //   backgroundColor: "#edf2f499",
+      borderRadius: 10,
       padding: 10,
-      margin:15
+      margin:15,
+      width:145,
+      
     },
     buttonText: {
       color: "#edf2f4",
+      textAlign:"center",
+      fontSize:18
     },
     buttonContainer:{
      flexDirection:"row",
+    
     //  backgroundColor:"white"
     }
   })
