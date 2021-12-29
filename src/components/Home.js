@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       padding: 10,
       margin:15,
-      width:145,
+    //   width:145,
       
     },
     buttonText: {
       color: "#edf2f4",
       textAlign:"center",
-      fontSize:18
+      fontSize:24
     },
     buttonContainer:{
      flexDirection:"row",
