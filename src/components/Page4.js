@@ -4,6 +4,7 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 const Page4 = ({navigation}) => {
     return (
         <View style={styles.container}>
+          <Text>workout specific info input page</Text>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
               <Text style={styles.buttonText}>Submit</Text>

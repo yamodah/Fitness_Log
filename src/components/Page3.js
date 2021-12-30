@@ -4,6 +4,7 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 const Page3 = ({navigation}) => {
     return (
         <View style={styles.container}>
+          <Text>two text inputs</Text>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
               <Text style={styles.buttonText}>Next</Text>

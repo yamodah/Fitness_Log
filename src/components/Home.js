@@ -17,7 +17,7 @@ const Home = ({navigation}) => {
               <Text style={styles.buttonText}>Activity Log</Text>
             </TouchableOpacity>
   
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("GeneralInfo")}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Page1")}}>
               <Text style={styles.buttonText}>Add Activity</Text>
             </TouchableOpacity>
           </View>

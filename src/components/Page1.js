@@ -4,15 +4,16 @@ import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 const Page1 = ({navigation}) => {
     return (
         <View style={styles.container}>
+          <Text>General info input page (buttons just for demo will only be a cancel and next button)</Text>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Weights")}}>
-              <Text style={styles.buttonText}>Weights</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page2")}}>
+              <Text style={styles.buttonText}>Page2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Sports")}}>
-              <Text style={styles.buttonText}>Sports</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page3")}}>
+              <Text style={styles.buttonText}>Page3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Cardio")}}>
-              <Text style={styles.buttonText}>Cardio</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
+              <Text style={styles.buttonText}>Page4</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>

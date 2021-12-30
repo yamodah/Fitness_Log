@@ -5,6 +5,8 @@ const Stack = createNativeStackNavigator()
 import Home from "./src/components/Home";
 import Page1 from "./src/components/Page1";
 import Page2 from "./src/components/Page2";
+import Page3 from "./src/components/Page3";
+import Page4 from "./src/components/Page4";
 export default function App() {
   return (
     <NavigationContainer >
