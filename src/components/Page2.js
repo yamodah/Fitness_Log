@@ -5,11 +5,11 @@ const Page2 = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
-              <Text style={styles.buttonText}>Submit workout</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page3")}}>
+              <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
-              <Text style={styles.buttonText}>Go back</Text>
+              <Text style={styles.buttonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
         </View>
