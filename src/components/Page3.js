@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
     }
   })
-export default Page2
+export default Page3
 
 
