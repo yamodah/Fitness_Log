@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 
-const GeneralInfo = ({navigation}) => {
+const Page1 = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
     }
   })
-export default GeneralInfo
+export default Page1
 
 

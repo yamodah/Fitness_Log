@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 
-const Sports = ({navigation}) => {
+const Page2 = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
     }
   })
-export default Sports
+export default Page2
 
 
