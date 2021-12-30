@@ -5,7 +5,7 @@ const Page4 = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
               <Text style={styles.buttonText}>Submit</Text>
             </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
