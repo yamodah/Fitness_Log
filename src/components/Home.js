@@ -13,7 +13,7 @@ const Home = ({navigation}) => {
           <Text style={styles.text}>Fitness Log</Text>
           <StatusBar style="light" />
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Logs")}}>
               <Text style={styles.buttonText}>Activity Log</Text>
             </TouchableOpacity>
   

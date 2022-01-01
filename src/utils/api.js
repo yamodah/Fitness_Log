@@ -3,7 +3,7 @@ import axios from "axios"
 
 
 export async function listWorkouts(){
-    const data =  await axios.get("https://yassine-fitness-api.herokuapp.com").catch(console.error)
+    const data =  await axios.get("https://yassine-fitness-api.herokuapp.com/workouts").catch(console.error)
     return data
 }
 export async function listWorkoutsByDate(workoutDate){

@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-const 
-const Logs = ({logs}) => {
-    const renderItem =(item)=>{
+import { listWorkouts } from '../utils/api'
+const Logs = () => {
+    const [logs,setLogs]=useState([])
+
+    useEffect(()=>{
+        listWorkouts().then((res)=>setLogs(res.data.data)).catch(console.error)
+    },[])
+
+    const renderItem =({item})=>{
         return(
         <View>
             <Text>workout number:{item.id}</Text>
@@ -18,8 +24,12 @@ const Logs = ({logs}) => {
         )
     }
     return (
-        <View>
-            <FlatList/>
+    <View>
+            <FlatList
+            data={logs}
+            renderItem={renderItem}
+            keyExtractor={item=>item.id+item.type}
+            /> 
         </View>
     )
 }
