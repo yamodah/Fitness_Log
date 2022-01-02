@@ -10,7 +10,7 @@ const Logs = () => {
 
     const renderItem =({item})=>{
         return(
-        <View>
+        <View style={styles.container}>
             <Text>workout number:{item.id}</Text>
             <Text>workout date:{item.date}</Text>
             <Text>workout type:{item.type}</Text>
@@ -36,4 +36,11 @@ const Logs = () => {
 
 export default Logs
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: "#d90429",
+        alignItems: "center",
+        justifyContent: "center",
+    }
+})
