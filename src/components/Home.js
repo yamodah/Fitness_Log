@@ -20,7 +20,7 @@ const Home = ({navigation}) => {
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Logs")}}>
               <Text style={styles.buttonText}>Activity Log</Text>
             </TouchableOpacity>
-  
+
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page1",dataPack)}}>
               <Text style={styles.buttonText}>Add Activity</Text>
             </TouchableOpacity>

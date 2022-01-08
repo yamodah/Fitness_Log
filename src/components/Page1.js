@@ -7,13 +7,10 @@ const Page1 = ({navigation}) => {
           <Text>General info input page (buttons just for demo will only be a cancel and next button)</Text>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page2")}}>
-              <Text style={styles.buttonText}>Page2</Text>
+              <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page3")}}>
-              <Text style={styles.buttonText}>Page3</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
-              <Text style={styles.buttonText}>Page4</Text>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Home")}}>
+              <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
