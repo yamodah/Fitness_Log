@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity, Button } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import { useData } from './GlobalContext';
 const Page1 = ({navigation}) => {
-  const currentDate = new Date()
-  const [date, setDate]=useState(currentDate)
+
+  const dataPack = useData()
+  const [date, setDate]=useState(new Date())
   const [type, setType]=useState("")
   const [duration, setDuration]=useState(0)
   const [goal, setGoal]=useState("")
@@ -15,6 +16,16 @@ const Page1 = ({navigation}) => {
   const dateChange = (event,value)=>{
     setDate(value)
      console.log(value)
+  }
+  const collectData = ()=>{
+    dataPack.setData({
+      date,
+      type,
+      duration,
+      goal,
+      ...dataPack.data
+    })
+    navigation.navigate("Page2")
   }
     return (
         <View style={styles.container}>
@@ -31,12 +42,7 @@ const Page1 = ({navigation}) => {
 
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} 
-              onPress={()=>{
-                navigation.navigate("Page2",{ 
-                data:{
-                date,type,duration,goal
-                 }})
-              }}>
+              onPress={collectData}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
