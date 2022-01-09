@@ -1,10 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import Slider from '@react-native-community/slider';
 
 const Page1 = ({navigation}) => {
     return (
         <View style={styles.container}>
           <Text>General info input page (buttons just for demo will only be a cancel and next button)</Text>
+          <View>
+            <Slider
+              style={{width: 200, height: 40}}
+              minimumValue={0}
+              maximumValue={1}
+              minimumTrackTintColor="#FFFFFF"
+              maximumTrackTintColor="#000000"
+            />
+          </View>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page2")}}>
               <Text style={styles.buttonText}>Next</Text>
@@ -12,10 +22,10 @@ const Page1 = ({navigation}) => {
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Home")}}>
               <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
-          </View>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
               <Text style={styles.buttonText}>Go back</Text>
             </TouchableOpacity>
+          </View>
         </View>
     )
 }
