@@ -8,6 +8,7 @@ import Page2 from "./src/components/Page2";
 import Page3 from "./src/components/Page3";
 import Page4 from "./src/components/Page4";
 import Logs from "./src/components/Logs";
+import DataPackProvider from "./src/components/GlobalContext";
 export default function App() {
 
   const options={
@@ -20,6 +21,7 @@ export default function App() {
     }
   }
   return (
+    <DataPackProvider>
     <NavigationContainer >
     <Stack.Navigator >
       <Stack.Screen name="Home" component={Home} options={{
@@ -49,6 +51,7 @@ export default function App() {
         }}/>
     </Stack.Navigator>
     </NavigationContainer>
+    </DataPackProvider>
   );
 }
 
