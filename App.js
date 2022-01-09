@@ -1,7 +1,7 @@
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { NavigationContainer } from '@react-navigation/native';
-import { Provider as PaperProvider } from "react-native-paper";
+
 const Stack = createNativeStackNavigator()
 import Home from "./src/components/Home";
 import Page1 from "./src/components/Page1";
@@ -23,7 +23,7 @@ export default function App() {
   }
   return (
     <DataPackProvider>
-      <PaperProvider>
+
         <NavigationContainer >
           <Stack.Navigator >
             <Stack.Screen name="Home" component={Home} options={{
@@ -53,7 +53,7 @@ export default function App() {
               }}/>
           </Stack.Navigator>
         </NavigationContainer>
-      </PaperProvider>
+
     </DataPackProvider>
   );
 }
