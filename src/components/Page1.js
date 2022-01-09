@@ -1,29 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import Slider from '@react-native-community/slider';
 
-const Page1 = ({navigation}) => {
+
+const Page1 = ({navigation, route}) => {
+  const [date, setDate]=useState(new Map())
+  const [type, setType]=useState(new Map())
+  const [duration, setdDuration]=useState(new Map())
+  const [goal, setGoal]=useState(new Map())
+  const {dataPack:{data,setData}} = route.params
+  const changeHanlder = (setMethod,value)=>{
+    setMethod(value)
+  }
+  const submitHandler = ()=>{
+    setData({
+      date,type,duration,goal,...data
+    })
+  }
     return (
         <View style={styles.container}>
-          <Text>General info input page (buttons just for demo will only be a cancel and next button)</Text>
+          <Text>General info input page </Text>
           <View>
-            <Slider
-              style={{width: 200, height: 40}}
-              minimumValue={0}
-              maximumValue={1}
-              minimumTrackTintColor="#FFFFFF"
-              maximumTrackTintColor="#000000"
-            />
+
           </View>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page2")}}>
+            <TouchableOpacity style={styles.button} 
+              onPress={()=>{
+              submitHandler()
+              navigation.navigate("Page2")
+              }}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Home")}}>
               <Text style={styles.buttonText}>cancel</Text>
-            </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
-              <Text style={styles.buttonText}>Go back</Text>
             </TouchableOpacity>
           </View>
         </View>
