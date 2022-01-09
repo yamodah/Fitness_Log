@@ -9,8 +9,9 @@ import {
 import React, {useState} from "react";
 
 const Home = ({navigation}) => {
-  const [exerciseData,setExerciseData]=useState({})
-  const dataPack  = {data:exerciseData,setData:setExerciseData}
+  const 
+  const [exerciseData,setExerciseData]=useState(new Map())
+  const dataPack = {data:exerciseData,setData:setExerciseData}
     return (
         <SafeAreaView style={styles.container}>
         <View style={styles.secondaryBG}>
