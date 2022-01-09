@@ -7,13 +7,13 @@ const Page1 = ({navigation, route}) => {
   const [type, setType]=useState(new Map())
   const [duration, setdDuration]=useState(new Map())
   const [goal, setGoal]=useState(new Map())
-  const {dataPack:{data,setData}} = route.params
+  const {dataPack} = route.params
   const changeHanlder = (setMethod,value)=>{
     setMethod(value)
   }
   const submitHandler = ()=>{
-    setData({
-      date,type,duration,goal,...data
+    dataPack.setData({
+      date, type, duration, goal, ...dataPack.data
     })
   }
     return (
@@ -30,7 +30,7 @@ const Page1 = ({navigation, route}) => {
               }}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.push("Home")}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home",{...dataPack})}}>
               <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
           </View>
