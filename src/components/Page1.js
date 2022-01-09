@@ -1,28 +1,33 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity, Button } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Page1 = ({navigation}) => {
-  const currentDate = new Date(0)
+  const currentDate = new Date()
   const [date, setDate]=useState(currentDate)
   const [type, setType]=useState("")
   const [duration, setDuration]=useState(0)
   const [goal, setGoal]=useState("")
   const changeHanlder = (setMethod,value)=>{
     setMethod(value)
+    console.log(value)
   }
-  
+  const dateChange = (event,value)=>{
+    setDate(value)
+     console.log(value)
+  }
     return (
         <View style={styles.container}>
-          <Text>General info input page </Text>
-
+          <View style={styles.dateContainer}>
+            <Text style={styles.labelText}>Date:</Text>
           <DateTimePicker
-          testID="dateTimePicker"
-          value={new Date()}
+          style={{width:160}}
+          value={date}
           mode="date"
-          display="default"
-          onChange={(val)=>changeHanlder(setDate,val)}
-        />
+          display="compact"
+          onChange={dateChange}
+          themeVariant="dark"
+        /></View>
 
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} 
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: "#d90429",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "space-around",
     },
     secondaryBG: {
       width: "85%",
@@ -76,8 +81,22 @@ const styles = StyleSheet.create({
     },
     buttonContainer:{
      flexDirection:"row",
+     justifyContent:"center",
+     alignItems:"center"
     
     //  backgroundColor:"white"
+    },
+    dateContainer:{
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
+      width:250,
+      color:"#edf2f4"
+    },
+    labelText:{
+      color:"#edf2f4",
+      fontSize:23,
+
     }
   })
 export default Page1
