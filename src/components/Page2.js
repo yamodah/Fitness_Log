@@ -1,11 +1,20 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import Slider from '@react-native-community/slider'
-const Page2 = ({navigation}) => {
-  const [date, setDate]=useState(new Map())
-  const [type, setType]=useState(new Map())
-  const [duration, setdDuration]=useState(new Map())
-  const [goal, setGoal]=useState(new Map())
+const Page2 = ({navigation, route}) => {
+  const [pre, setPre]=useState(0)
+  const [post, setPost]=useState(0)
+  const [intensity, setIntensity]=useState(0)
+  const {data, setData} = route.params
+  const changeHanlder = (setMethod,value)=>{
+    setMethod(value)
+  }
+  const submitHandler = ()=>{
+    dataPack.setData({
+      pre, post, intensity, ...dataPack.data
+    })
+  }
+  console.log(dataPack.data)
     return (
         <View style={styles.container}>
           <Text>3 slider inputs</Text>
@@ -15,6 +24,7 @@ const Page2 = ({navigation}) => {
             maximumValue={1}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
+            onSlidingComplete
           />
           <Slider
             style={{width: 200, height: 40}}
@@ -22,6 +32,7 @@ const Page2 = ({navigation}) => {
             maximumValue={1}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
+            onSlidingComplete
           />
           <Slider
             style={{width: 200, height: 40}}
@@ -29,9 +40,10 @@ const Page2 = ({navigation}) => {
             maximumValue={1}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
+            onSlidingComplete
           />
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page3")}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page3",dataPack)}}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>

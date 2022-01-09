@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Page1 = ({navigation, route}) => {
-  const [date, setDate]=useState(new Map())
-  const [type, setType]=useState(new Map())
-  const [duration, setdDuration]=useState(new Map())
-  const [goal, setGoal]=useState(new Map())
-  const {dataPack} = route.params
+  const [date, setDate]=useState(new Date())
+  const [type, setType]=useState("")
+  const [duration, setDuration]=useState(0)
+  const [goal, setGoal]=useState("")
+  const {data, setData} = route.params
   const changeHanlder = (setMethod,value)=>{
     setMethod(value)
   }
   const submitHandler = ()=>{
-    dataPack.setData({
-      date, type, duration, goal, ...dataPack.data
+   setData({
+      date, type, duration, goal, ...data
     })
+    console.log("submitting")
   }
     return (
         <View style={styles.container}>
@@ -26,11 +27,11 @@ const Page1 = ({navigation, route}) => {
             <TouchableOpacity style={styles.button} 
               onPress={()=>{
               submitHandler()
-              navigation.navigate("Page2")
+              navigation.navigate("Page2",{data,setData})
               }}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home",{...dataPack})}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
               <Text style={styles.buttonText}>cancel</Text>
             </TouchableOpacity>
           </View>
