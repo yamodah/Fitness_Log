@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Button } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { RadioButton } from "react-native-paper";
+import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import { useData } from "./GlobalContext";
 const Page1 = ({ navigation }) => {
   const dataPack = useData();
@@ -9,14 +9,18 @@ const Page1 = ({ navigation }) => {
   const [type, setType] = useState("");
   const [duration, setDuration] = useState(0);
   const [goal, setGoal] = useState("");
+  const index = ()=>{
+    if(type==="Sports")return 0 
+    if(type==="Resistance")return 1 
+    if(type==="Cardio")return 2
+    return 0
+  }
   const changeHanlder = (setMethod, value) => {
     setMethod(value);
-    console.log(value);
+    console.log(value)
   };
-  const dateChange = (event, value) => {
-    setDate(value);
-    console.log(value);
-  };
+
+
   const collectData = () => {
     dataPack.setData({
       date,
@@ -36,21 +40,19 @@ const Page1 = ({ navigation }) => {
           value={date}
           mode="date"
           display="compact"
-          onChange={dateChange}
+          onChange={(event, value)=>changeHanlder(setDate,value)}
           themeVariant="dark"
         />
       </View>
-      <View>
-      <RadioButton
-        value="first"
-        status="checked"
-        onPress={console.log()}
-      />
-      <RadioButton
-        value="second"
-        status="checked"
-        onPress={() => setChecked('second')}
-      />
+      <View style={styles.segements}>
+        <SegmentedControl
+          values={["Sports", "Resistance", "Cardio"]}
+          selectedIndex={index()}
+          backgroundColor="#8d99ae"
+          tintColor="#edf2f4"
+          activeFontStyle={{ color: "#ef233c", fontSize: 17 }}
+          onChange={({nativeEvent})=>changeHanlder(setType,nativeEvent.value.toLowerCase())}
+        />
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={collectData}>
@@ -117,6 +119,11 @@ const styles = StyleSheet.create({
   labelText: {
     color: "#edf2f4",
     fontSize: 23,
+  },
+  segements: {
+    width: "80%",
+    justifyContent: "center",
+    // backgroundColor: "#edf2f4",
   },
 });
 export default Page1;
