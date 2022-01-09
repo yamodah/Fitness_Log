@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, ViewPropTypes } from "react-native";
 import Slider from "@react-native-community/slider";
+import { useData } from "./GlobalContext";
 const Page2 = ({ navigation, route }) => {
   const [pre, setPre] = useState(0);
   const [post, setPost] = useState(0);
   const [intensity, setIntensity] = useState(0);
-  const { data } = route.params;
+  const dataPack= useData()
+  // console.log(dataPack.data)
   const changeHanlder = (setMethod, value) => {
     setMethod(value);
   };
+  const collectData = ()=>{
+    dataPack.setData({
+      pre,post,intensity,
+      ...dataPack.data
+    })
+    navigation.navigate("Page3")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.slidersContainer}>
@@ -62,17 +71,7 @@ const Page2 = ({ navigation, route }) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
-            console.log(pre,post,intensity)
-            navigation.navigate("Page3", {
-              data: {
-                ...data,
-                pre,
-                post,
-                intensity,
-              },
-            });
-          }}
+          onPress={collectData}
         >
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
