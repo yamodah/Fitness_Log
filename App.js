@@ -1,6 +1,7 @@
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider as PaperProvider } from "react-native-paper";
 const Stack = createNativeStackNavigator()
 import Home from "./src/components/Home";
 import Page1 from "./src/components/Page1";
@@ -22,35 +23,37 @@ export default function App() {
   }
   return (
     <DataPackProvider>
-    <NavigationContainer >
-    <Stack.Navigator >
-      <Stack.Screen name="Home" component={Home} options={{
-          title: 'Home',
-          ...options
-         
-        }}/>
-      <Stack.Screen name="Logs" component={Logs} options={{
-          title: 'Logs',
-          ...options
-        }}/>
-        <Stack.Screen name="Page1" component={Page1} options={{
-          title: 'Page 1',
-          ...options
-        }}/>
-        <Stack.Screen name="Page2" component={Page2} options={{
-          title: 'Page 2',
-          ...options
-        }}/>
-        <Stack.Screen name="Page3" component={Page3} options={{
-          title: 'Page 3',
-          ...options
-        }}/>
-        <Stack.Screen name="Page4" component={Page4} options={{
-          title: 'Page 4',
-          ...options
-        }}/>
-    </Stack.Navigator>
-    </NavigationContainer>
+      <PaperProvider>
+        <NavigationContainer >
+          <Stack.Navigator >
+            <Stack.Screen name="Home" component={Home} options={{
+                title: 'Home',
+                ...options
+              
+              }}/>
+            <Stack.Screen name="Logs" component={Logs} options={{
+                title: 'Logs',
+                ...options
+              }}/>
+              <Stack.Screen name="Page1" component={Page1} options={{
+                title: 'Page 1',
+                ...options
+              }}/>
+              <Stack.Screen name="Page2" component={Page2} options={{
+                title: 'Page 2',
+                ...options
+              }}/>
+              <Stack.Screen name="Page3" component={Page3} options={{
+                title: 'Page 3',
+                ...options
+              }}/>
+              <Stack.Screen name="Page4" component={Page4} options={{
+                title: 'Page 4',
+                ...options
+              }}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
     </DataPackProvider>
   );
 }
