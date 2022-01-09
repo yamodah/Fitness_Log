@@ -6,11 +6,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from "react-native";
-import React, {useState} from "react";
+import React from "react";
 
 const Home = ({navigation}) => {
-  const [exerciseData,setExerciseData]=useState({})
-  const dataPack = {data:exerciseData,setData:setExerciseData}
     return (
         <SafeAreaView style={styles.container}>
         <View style={styles.secondaryBG}>
@@ -21,7 +19,7 @@ const Home = ({navigation}) => {
               <Text style={styles.buttonText}>Activity Log</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page1",{data:exerciseData,setData:setExerciseData})}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page1")}}>
               <Text style={styles.buttonText}>Add Activity</Text>
             </TouchableOpacity>
           </View>

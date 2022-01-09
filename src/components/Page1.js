@@ -2,32 +2,35 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const Page1 = ({navigation, route}) => {
-  const [date, setDate]=useState(new Date())
+const Page1 = ({navigation}) => {
+  const currentDate = new Date(0)
+  const [date, setDate]=useState(currentDate)
   const [type, setType]=useState("")
   const [duration, setDuration]=useState(0)
   const [goal, setGoal]=useState("")
-  const {data, setData} = route.params
   const changeHanlder = (setMethod,value)=>{
     setMethod(value)
   }
-  const submitHandler = ()=>{
-   setData({
-      date, type, duration, goal, ...data
-    })
-    console.log("submitting")
-  }
+  
     return (
         <View style={styles.container}>
           <Text>General info input page </Text>
-          <View>
 
-          </View>
+          <DateTimePicker
+          testID="dateTimePicker"
+          value={new Date()}
+          mode="date"
+          display="default"
+          onChange={(val)=>changeHanlder(setDate,val)}
+        />
+
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} 
               onPress={()=>{
-              submitHandler()
-              navigation.navigate("Page2",{data,setData})
+                navigation.navigate("Page2",{ 
+                data:{
+                date,type,duration,goal
+                 }})
               }}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
