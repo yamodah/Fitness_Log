@@ -43,7 +43,7 @@ const Page1 = ({ navigation }) => {
         <View style={styles.dateContainer}>
           <Text style={styles.labelText}>Date:</Text>
           <DateTimePicker
-            style={{ width: 160 }}
+            style={{ width: 250 }}
             value={date}
             mode="date"
             display="compact"
