@@ -17,9 +17,8 @@ const Page3 = ({navigation}) => {
   }
     return (
         <View style={styles.container}>
-          <Text>two text inputs</Text>
-          <View >
-            <Text >Pain(s):</Text>
+          <View style={styles.largeTextBoxContainer}>
+            <Text style={styles.inputLabel}>Pain(s):</Text>
             <TextInput
             style={{maxWidth:155, padding:5}}
               keyboardType="default"
@@ -34,7 +33,7 @@ const Page3 = ({navigation}) => {
             />
           </View>
           <View >
-            <Text >Performance:</Text>
+            <Text style={styles.inputLabel}>Performance:</Text>
             <TextInput
             style={{maxWidth:155, padding:5}}
               keyboardType="default"
@@ -49,7 +48,7 @@ const Page3 = ({navigation}) => {
             />
           </View>
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
+            <TouchableOpacity style={styles.button} onPress={collectData}>
               <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
@@ -96,6 +95,20 @@ const styles = StyleSheet.create({
      flexDirection:"row",
     
     //  backgroundColor:"white"
+    },
+    largeTextBoxContainer:{
+      height:250,
+      width:250,
+      backgroundColor:"#edf2f4",
+      justifyContent:"center",
+      alignItems:"center",
+      flexDirection:"column"
+    },
+    inputLabel:{
+      marginRight:10,
+      color:"#d90429",
+      fontSize:15,
+      // alignSelf:"center"
     }
   })
 export default Page3
