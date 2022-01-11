@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   TextInput,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
@@ -25,7 +25,6 @@ const Page1 = ({ navigation }) => {
   };
   const changeHandler = (setMethod, value) => {
     setMethod(value);
-
   };
 
   const collectData = () => {
@@ -40,77 +39,83 @@ const Page1 = ({ navigation }) => {
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <View style={styles.container}>
-      <View style={styles.dateContainer}>
-        <Text style={styles.labelText}>Date:</Text>
-        <DateTimePicker
-          style={{ width: 160 }}
-          value={date}
-          mode="date"
-          display="compact"
-          onChange={(event, value) => changeHandler(setDate, value)}
-          themeVariant="dark"
-        />
-      </View>
-      <View style={styles.segements}>
-        <SegmentedControl
-          style={{ height: 35 }}
-          values={["Sports", "Resistance", "Cardio"]}
-          selectedIndex={index()}
-          backgroundColor="#8d99ae"
-          tintColor="#edf2f4"
-          fontStyle={{ fontSize: 13, color: "#edf2f4" }}
-          activeFontStyle={{ color: "#ef233c", fontSize: 16 }}
-          onChange={({ nativeEvent }) =>
-            changeHandler(setType, nativeEvent.value.toLowerCase())
-          }
-        />
-      </View>
-      <View style={{flexDirection:"row", width:"100%"}}>
-        <Text style={styles.inputLabel}>Workout Duration:</Text>
-        <View style={styles.durationContainer}>
-          <TextInput
-            keyboardType="number-pad"
-            onChange={({ nativeEvent }) =>
-              changeHandler(setDuration, nativeEvent.text)
-            }
-            placeholder="min(s)"
-            returnKeyType="done"
-            value={`${duration}`}
+      <View style={styles.container}>
+        <View style={styles.dateContainer}>
+          <Text style={styles.labelText}>Date:</Text>
+          <DateTimePicker
+            style={{ width: 160 }}
+            value={date}
+            mode="date"
+            display="compact"
+            onChange={(event, value) => changeHandler(setDate, value)}
+            themeVariant="dark"
           />
         </View>
+        <View style={styles.segements}>
+          <SegmentedControl
+            style={{ height: 35 }}
+            values={["Sports", "Resistance", "Cardio"]}
+            selectedIndex={index()}
+            backgroundColor="#8d99ae"
+            tintColor="#edf2f4"
+            fontStyle={{ fontSize: 13, color: "#edf2f4" }}
+            activeFontStyle={{ color: "#ef233c", fontSize: 16 }}
+            onChange={({ nativeEvent }) =>
+              changeHandler(setType, nativeEvent.value.toLowerCase())
+            }
+          />
+        </View>
+        <View style={{ flexDirection: "row", width: "100%" }}>
+          <Text style={styles.inputLabel}>Duration:</Text>
+          <View style={styles.durationContainer}>
+            <TextInput
+              keyboardType="number-pad"
+              onChange={({ nativeEvent }) =>
+                changeHandler(setDuration, nativeEvent.text)
+              }
+              placeholder="min(s)"
+              returnKeyType="done"
+              value={`${duration}`}
+            />
+          </View>
+        </View>
+        <View style={styles.goalContainer}>
+          <Text style={styles.internalLabel}>Goal:</Text>
+          <TextInput
+            style={{ width: "100%", padding: 10 }}
+            keyboardType="default"
+            onChange={({ nativeEvent }) =>
+              changeHandler(setGoal, nativeEvent.text)
+            }
+            placeholder="general fitness"
+            maxLength={140}
+            value={goal}
+            multiline
+          />
+          <TouchableOpacity
+            onPress={Keyboard.dismiss}
+            accessible={false}
+            style={{alignSelf:"flex-end", padding:5}}
+          >
+
+              <Text style={styles.internalDoneLabel}>Done</Text>
+
+          </TouchableOpacity>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate("Home");
+            }}
+          >
+            <Text style={styles.buttonText}>Cancel</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={collectData}>
+            <Text style={styles.buttonText}>Next</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-        <Text style={styles.inputLabel}>Workout session goal:</Text>
-      <View style={styles.goalContainer}>
-        <TextInput
-        style={{maxWidth:155, padding:5,flex:1}}
-          keyboardType="default"
-          onChange={({ nativeEvent }) =>
-            changeHandler(setGoal, nativeEvent.text)
-          }
-          placeholder="general fitness"
-          maxLength={140}
-          // returnKeyType="next"
-          value={goal}
-          multiline
-        />
-        <TouchableOpacity onPress={Keyboard.dismiss} accessible={false} style={{marginTop:0}}><View><Text style={styles.doneDurationText}>Done</Text></View></TouchableOpacity>
-      </View>
-        <TouchableOpacity onPress={Keyboard.dismiss} accessible={false} style={{marginTop:10}}><View><Text style={styles.buttonText}>Done</Text></View></TouchableOpacity>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate("Home");
-          }}
-        >
-          <Text style={styles.buttonText}>Cancel</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={collectData}>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
     </TouchableWithoutFeedback>
   );
 };
@@ -119,8 +124,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#d90429",
     alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop:55
+    justifyContent: "space-evenly",
+    paddingBottom: 80,
   },
   text: {
     color: "#edf2f4",
@@ -143,7 +148,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop:150
+    marginTop: 100,
     // alignSelf:"flex-start"
     //  backgroundColor:"white"
   },
@@ -153,7 +158,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 250,
     color: "#edf2f4",
-    marginBottom: 10,
+    marginBottom: 15,
+    marginTop: 5,
   },
   labelText: {
     color: "#edf2f4",
@@ -166,42 +172,52 @@ const styles = StyleSheet.create({
     // backgroundColor: "#edf2f4",
   },
   durationContainer: {
-    marginLeft:17,
+    marginLeft: 17,
 
     borderRadius: 10,
-    height:20,
-    width:65,
+    height: 20,
+    width: 65,
     backgroundColor: "#edf2f4",
     alignItems: "center",
     justifyContent: "space-between",
     paddingRight: 10,
     paddingLeft: 10,
-    flexDirection:"row"
+    flexDirection: "row",
   },
   goalContainer: {
-    marginBottom: 15,
-    marginTop:15,
-    borderRadius: 10,
-    minWidth: 20,
-    height: 120,
-    width:"75%",
+    maxHeight: "65%",
+    width: "75%",
     backgroundColor: "#edf2f4",
-    alignItems: "center",
-    justifyContent: "center",
-    padding:15,
-    flexDirection:"row"
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flexDirection: "column",
+    borderRadius: 10,
+    padding: 8,
   },
-  inputLabel:{
-    marginLeft:50,
-    color:"#edf2f4",
-    fontSize:23,
-    alignSelf:"flex-start"
+  inputLabel: {
+    marginLeft: 50,
+    color: "#edf2f4",
+    fontSize: 23,
+    alignSelf: "flex-start",
   },
-  longInputLabel:{
-    marginRight:10,
-    color:"#d90429",
-    fontSize:15,
-    alignSelf:"flex-start"
+  internalLabel: {
+    marginLeft: 10,
+    marginTop: 5,
+    color: "#d90429",
+    fontSize: 15,
+  },
+  internalDoneLabel: {
+    marginLeft: 10,
+    marginTop: 5,
+    color: "#d90429",
+    fontSize: 15,
+    alignSelf: "flex-end",
+  },
+  longInputLabel: {
+    marginRight: 10,
+    color: "#d90429",
+    fontSize: 15,
+    alignSelf: "flex-start",
   },
   doneDurationText: {
     color: "#d90429",
