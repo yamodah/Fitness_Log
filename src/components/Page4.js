@@ -1,7 +1,25 @@
-import React from 'react'
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import React, {useState} from 'react'
+import { StyleSheet, Text, View,TouchableOpacity,Keyboard,TouchableWithoutFeedback } from 'react-native'
 
-const Page4 = ({navigation}) => {
+const Page4 = ({navigation,route}) => {
+  const [bodyParts, setBodyParts]=useState(new Set())
+  const [sport, setSport]=useState("")
+  const [venue, setVenue]=useState("")
+  const [competition, setCompetition]=useState(false)
+  const [cardio_type, setCardio_type]=useState("")
+  const [distance, setDistance]=useState(0)
+  const [speed, setSpeed]=useState(0)
+  const [show,setShow]=useState(false)
+  const changeHandler = (setMethod, value) => {
+    setMethod(value);
+  };
+  const collectData = ()=>{
+    dataPack.setData({
+      
+      ...dataPack.data
+    })
+    navigation.navigate("Page4",dataPack.data.type)
+  }
     return (
         <View style={styles.container}>
           <Text>workout specific info input page</Text>
