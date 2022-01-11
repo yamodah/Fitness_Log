@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, ViewPropTypes } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native";
 import Slider from "@react-native-community/slider";
 import { useData } from "./GlobalContext";
 const Page2 = ({ navigation, route }) => {
@@ -21,7 +21,6 @@ const Page2 = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.slidersContainer}>
-
       <View style={styles.sliderContainer}>
       <Text style={styles.sliderText}>
       Pre exercise
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#d90429",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
   },
   secondaryBG: {
     width: "85%",
@@ -116,6 +115,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
+    alignSelf:"center"
 
     //  backgroundColor:"white"
   },
