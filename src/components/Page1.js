@@ -25,7 +25,7 @@ const Page1 = ({ navigation }) => {
   };
   const changeHandler = (setMethod, value) => {
     setMethod(value);
-    // console.log(typeof value)
+
   };
 
   const collectData = () => {

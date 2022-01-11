@@ -7,7 +7,7 @@ const Page2 = ({ navigation, route }) => {
   const [post, setPost] = useState(0);
   const [intensity, setIntensity] = useState(0);
   const dataPack= useData()
-  // console.log(dataPack.data)
+
   const changeHanlder = (setMethod, value) => {
     setMethod(value);
   };
