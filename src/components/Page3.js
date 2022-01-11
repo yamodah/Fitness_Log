@@ -18,9 +18,10 @@ const Page3 = ({navigation}) => {
     return (
         <View style={styles.container}>
           <View style={styles.largeTextBoxContainer}>
+            <View style={{margin:15}}>
             <Text style={styles.inputLabel}>Pain(s):</Text>
             <TextInput
-            style={{maxWidth:155, padding:5}}
+            style={{maxWidth:"100%", padding:5}}
               keyboardType="default"
               onChange={({ nativeEvent }) =>
                 changeHandler(setPain, nativeEvent.text)
@@ -30,11 +31,11 @@ const Page3 = ({navigation}) => {
               value={pain}
               multiline
             />
-          </View>
-          <View >
+            </View>
+            <View style={{margin:15}}>
             <Text style={styles.inputLabel}>Performance:</Text>
             <TextInput
-            style={{maxWidth:155, padding:5}}
+              style={{maxWidth:"100%", padding:5}}
               keyboardType="default"
               onChange={({ nativeEvent }) =>
                 changeHandler(setPerformance, nativeEvent.text)
@@ -46,12 +47,14 @@ const Page3 = ({navigation}) => {
               multiline
             />
           </View>
+          </View>
+          
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={collectData}>
-              <Text style={styles.buttonText}>Next</Text>
-            </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
               <Text style={styles.buttonText}>Go back</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={collectData}>
+              <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: "#d90429",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "space-around",
     },
     secondaryBG: {
       width: "85%",
@@ -96,12 +99,13 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
     },
     largeTextBoxContainer:{
-      height:250,
-      width:250,
+      maxHeight:"65%",
+      width:"75%",
       backgroundColor:"#edf2f4",
-      justifyContent:"center",
-      alignItems:"center",
-      flexDirection:"column"
+      justifyContent:"flex-start",
+      alignItems:"flex-start",
+      flexDirection:"column",
+      borderRadius:10
     },
     inputLabel:{
       marginRight:10,

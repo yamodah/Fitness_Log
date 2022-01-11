@@ -69,19 +69,14 @@ const Page2 = ({ navigation, route }) => {
         </View>
        </View> 
       <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
+              <Text style={styles.buttonText}>Go back</Text>
+            </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={collectData}
         >
           <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate("Home");
-          }}
-        >
-          <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
       </View>
     </View>
