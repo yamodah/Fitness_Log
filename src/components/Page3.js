@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,TextInput, Keyboard, TouchableWithoutFeedback} from 'react-native'
 import { useData } from './GlobalContext'
 const Page3 = ({navigation}) => {
   const [pain, setPain]=useState("")
@@ -16,6 +16,7 @@ const Page3 = ({navigation}) => {
     navigation.navigate("Page4",dataPack.data.type)
   }
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
           <View style={styles.largeTextBoxContainer}>
             <View style={{margin:15}}>
@@ -58,6 +59,7 @@ const Page3 = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
+      </TouchableWithoutFeedback>
     )
 }
 const styles = StyleSheet.create({
