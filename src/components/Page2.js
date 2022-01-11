@@ -8,7 +8,7 @@ const Page2 = ({ navigation, route }) => {
   const [intensity, setIntensity] = useState(0);
   const dataPack= useData()
 
-  const changeHanlder = (setMethod, value) => {
+  const changeHandler = (setMethod, value) => {
     setMethod(value);
   };
   const collectData = ()=>{
@@ -34,7 +34,7 @@ const Page2 = ({ navigation, route }) => {
         maximumTrackTintColor="#000000"
         tapToSeek={true}
         step={1}
-        onSlidingComplete={(val)=>changeHanlder(setPre,val)}
+        onSlidingComplete={(val)=>changeHandler(setPre,val)}
       />
       </View>
       <View style={styles.sliderContainer}>

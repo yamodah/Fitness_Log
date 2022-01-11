@@ -1,10 +1,53 @@
-import React from 'react'
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-
+import React, {useState} from 'react'
+import { StyleSheet, Text, View,TouchableOpacity,TextInput } from 'react-native'
+import { useData } from './GlobalContext'
 const Page3 = ({navigation}) => {
+  const [pain, setPain]=useState("")
+  const [performance,setPerformance] = useState("")
+  const dataPack = useData()
+  const changeHandler = (setMethod, value) => {
+    setMethod(value);
+  };
+  const collectData = ()=>{
+    dataPack.setData({
+      pain,performance,
+      ...dataPack.data
+    })
+    navigation.navigate("Page4",dataPack.data.type)
+  }
     return (
         <View style={styles.container}>
           <Text>two text inputs</Text>
+          <View >
+            <Text >Pain(s):</Text>
+            <TextInput
+            style={{maxWidth:155, padding:5}}
+              keyboardType="default"
+              onChange={({ nativeEvent }) =>
+                changeHandler(setPain, nativeEvent.text)
+              }
+              placeholder="general fitness"
+              maxLength={140}
+              returnKeyType="return"
+              value={pain}
+              multiline
+            />
+          </View>
+          <View >
+            <Text >Performance:</Text>
+            <TextInput
+            style={{maxWidth:155, padding:5}}
+              keyboardType="default"
+              onChange={({ nativeEvent }) =>
+                changeHandler(setPerformance, nativeEvent.text)
+              }
+              placeholder="general fitness"
+              maxLength={140}
+              returnKeyType="return"
+              value={performance}
+              multiline
+            />
+          </View>
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page4")}}>
               <Text style={styles.buttonText}>Next</Text>
