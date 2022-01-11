@@ -49,7 +49,7 @@ const Page2 = ({ navigation, route }) => {
         maximumTrackTintColor="#000000"
         tapToSeek={true}
         step={1}
-        onSlidingComplete={(val)=>changeHanlder(setPost,val)}
+        onSlidingComplete={(val)=>changeHandler(setPost,val)}
       />
       </View>
       <View style={styles.sliderContainer}>
@@ -64,7 +64,7 @@ const Page2 = ({ navigation, route }) => {
         maximumTrackTintColor="#000000"
         tapToSeek={true}
         step={1}
-        onSlidingComplete={(val)=>changeHanlder(setIntensity,val)}
+        onSlidingComplete={(val)=>changeHandler(setIntensity,val)}
         />
         </View>
        </View> 

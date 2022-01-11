@@ -15,7 +15,7 @@ const Page1 = ({ navigation }) => {
   const dataPack = useData();
   const [date, setDate] = useState(new Date());
   const [type, setType] = useState("Sports");
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState("");
   const [goal, setGoal] = useState("");
   const index = () => {
     if (type === "Sports") return 0;
@@ -66,33 +66,35 @@ const Page1 = ({ navigation }) => {
           }
         />
       </View>
-      <View style={styles.durationContainer}>
+      <View style={{flexDirection:"row", width:"100%"}}>
         <Text style={styles.inputLabel}>Workout Duration:</Text>
-        <TextInput
-          keyboardType="number-pad"
-          onChange={({ nativeEvent }) =>
-            changeHandler(setDuration, nativeEvent.text)
-          }
-          placeholder="min(s)"
-          returnKeyType="done"
-          value={duration}
-        />
-        
+        <View style={styles.durationContainer}>
+          <TextInput
+            keyboardType="number-pad"
+            onChange={({ nativeEvent }) =>
+              changeHandler(setDuration, nativeEvent.text)
+            }
+            placeholder="min(s)"
+            returnKeyType="done"
+            value={`${duration}`}
+          />
+        </View>
       </View>
-      <View style={styles.goalContainer}>
         <Text style={styles.inputLabel}>Workout session goal:</Text>
+      <View style={styles.goalContainer}>
         <TextInput
-        style={{maxWidth:155, padding:5}}
+        style={{maxWidth:155, padding:5,flex:1}}
           keyboardType="default"
           onChange={({ nativeEvent }) =>
             changeHandler(setGoal, nativeEvent.text)
           }
           placeholder="general fitness"
           maxLength={140}
-          returnKeyType="return"
+          // returnKeyType="next"
           value={goal}
           multiline
         />
+        <TouchableOpacity onPress={Keyboard.dismiss} accessible={false} style={{marginTop:0}}><View><Text style={styles.doneDurationText}>Done</Text></View></TouchableOpacity>
       </View>
         <TouchableOpacity onPress={Keyboard.dismiss} accessible={false} style={{marginTop:10}}><View><Text style={styles.buttonText}>Done</Text></View></TouchableOpacity>
       <View style={styles.buttonContainer}>
@@ -101,7 +103,6 @@ const Page1 = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("Home");
           }}
-          
         >
           <Text style={styles.buttonText}>Cancel</Text>
         </TouchableOpacity>
@@ -165,15 +166,14 @@ const styles = StyleSheet.create({
     // backgroundColor: "#edf2f4",
   },
   durationContainer: {
-    marginBottom: 15,
-    marginTop:15,
+    marginLeft:17,
+
     borderRadius: 10,
-    minWidth: 20,
-    minHeight: 30,
-    maxWidth:"85%",
+    height:20,
+    width:65,
     backgroundColor: "#edf2f4",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     paddingRight: 10,
     paddingLeft: 10,
     flexDirection:"row"
@@ -183,8 +183,8 @@ const styles = StyleSheet.create({
     marginTop:15,
     borderRadius: 10,
     minWidth: 20,
-    minHeight: 30,
-    maxWidth:"85%",
+    height: 120,
+    width:"75%",
     backgroundColor: "#edf2f4",
     alignItems: "center",
     justifyContent: "center",
@@ -192,10 +192,21 @@ const styles = StyleSheet.create({
     flexDirection:"row"
   },
   inputLabel:{
+    marginLeft:50,
+    color:"#edf2f4",
+    fontSize:23,
+    alignSelf:"flex-start"
+  },
+  longInputLabel:{
     marginRight:10,
     color:"#d90429",
     fontSize:15,
-    // alignSelf:"center"
-  }
+    alignSelf:"flex-start"
+  },
+  doneDurationText: {
+    color: "#d90429",
+    textAlign: "center",
+    fontSize: 12,
+  },
 });
 export default Page1;

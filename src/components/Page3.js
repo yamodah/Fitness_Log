@@ -27,7 +27,6 @@ const Page3 = ({navigation}) => {
               }
               placeholder="general fitness"
               maxLength={140}
-              returnKeyType="return"
               value={pain}
               multiline
             />
