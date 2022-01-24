@@ -10,7 +10,8 @@ const Page3 = ({navigation}) => {
   };
   const collectData = ()=>{
     dataPack.setData({
-      pain,performance,
+      pain,
+      performance,
       ...dataPack.data
     })
     navigation.navigate("Page4",dataPack.data.type)
@@ -43,7 +44,6 @@ const Page3 = ({navigation}) => {
               }
               placeholder="general fitness"
               maxLength={140}
-              returnKeyType="return"
               value={performance}
               multiline
             />
