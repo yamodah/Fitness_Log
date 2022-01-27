@@ -29,11 +29,11 @@ const Page1 = ({ navigation }) => {
 
   const collectData = () => {
     dataPack.setData({
+      ...dataPack.data,
       date,
       type,
       duration: Number(duration),
       goal,
-      ...dataPack.data,
     });
     navigation.navigate("Page2");
   };

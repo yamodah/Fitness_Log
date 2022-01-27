@@ -10,6 +10,7 @@ const Page4 = ({navigation,route}) => {
   const [distance, setDistance]=useState(0)
   const [speed, setSpeed]=useState(0)
   const [show,setShow]=useState(false)
+  const {type}= route.params
   const changeHandler = (setMethod, value) => {
     setMethod(value);
   };
@@ -20,6 +21,7 @@ const Page4 = ({navigation,route}) => {
     })
     navigation.navigate("Page4",dataPack.data.type)
   }
+  console.log(type)
     return (
         <View style={styles.container}>
           <Text>workout specific info input page</Text>

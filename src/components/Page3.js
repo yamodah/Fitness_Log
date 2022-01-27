@@ -18,12 +18,13 @@ const Page3 = ({ navigation }) => {
   };
   const collectData = () => {
     dataPack.setData({
+      ...dataPack.data,
       pain,
       performance,
-      ...dataPack.data,
     });
-    navigation.navigate("Page4", dataPack.data.type);
+    navigation.navigate("Page4", {type:dataPack.data.type});
   };
+  // console.log(dataPack.data)
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>

@@ -13,11 +13,12 @@ const Page2 = ({ navigation, route }) => {
   };
   const collectData = ()=>{
     dataPack.setData({
+      ...dataPack.data,
       pre,post,intensity,
-      ...dataPack.data
     })
     navigation.navigate("Page3")
   }
+  console.log(dataPack.data)
   return (
     <View style={styles.container}>
       <View style={styles.slidersContainer}>
