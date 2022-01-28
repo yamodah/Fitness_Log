@@ -21,7 +21,7 @@ const Page4 = ({navigation,route}) => {
     })
     navigation.navigate("Page4",dataPack.data.type)
   }
-  console.log(type)
+  // console.log(type)
     return (
         <View style={styles.container}>
           <Text>workout specific info input page</Text>

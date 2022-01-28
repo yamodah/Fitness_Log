@@ -18,7 +18,7 @@ const Page2 = ({ navigation, route }) => {
     })
     navigation.navigate("Page3")
   }
-  console.log(dataPack.data)
+  // console.log(dataPack.data)
   return (
     <View style={styles.container}>
       <View style={styles.slidersContainer}>
