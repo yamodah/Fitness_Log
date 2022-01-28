@@ -24,14 +24,14 @@ const Page2 = ({ navigation, route }) => {
       <View style={styles.slidersContainer}>
       <View style={styles.sliderContainer}>
       <Text style={styles.sliderText}>
-      Pre exercise
+      Pre exercise  
       </Text>
       <Slider
         style={{ width: 245, height: 40 }}
         minimumValue={0}
         maximumValue={100}
-        minimumTrackTintColor="#FFFFFF"
-        maximumTrackTintColor="#000000"
+        minimumTrackTintColor="#d90429"
+        maximumTrackTintColor="#2b2d42"
         tapToSeek={true}
         step={1}
         onSlidingComplete={(val)=>changeHandler(setPre,val)}
@@ -39,14 +39,14 @@ const Page2 = ({ navigation, route }) => {
       </View>
       <View style={styles.sliderContainer}>
       <Text style={styles.sliderText}>
-      Post exercise
+      Post exercise 
       </Text>
       <Slider
         style={{ width: 245, height: 40 }}
         minimumValue={0}
         maximumValue={100}
-        minimumTrackTintColor="#FFFFFF"
-        maximumTrackTintColor="#000000"
+        minimumTrackTintColor="#d90429"
+        maximumTrackTintColor="#2b2d42"
         tapToSeek={true}
         step={1}
         onSlidingComplete={(val)=>changeHandler(setPost,val)}
@@ -54,14 +54,14 @@ const Page2 = ({ navigation, route }) => {
       </View>
       <View style={styles.sliderContainer}>
       <Text style={styles.sliderText}>
-       General intensity ?
+       General intensity
       </Text>
       <Slider
         style={{ width: 245, height: 40 }}
         minimumValue={0}
         maximumValue={100}
-        minimumTrackTintColor="#FFFFFF"
-        maximumTrackTintColor="#000000"
+        minimumTrackTintColor="#d90429"
+        maximumTrackTintColor="#2b2d42"
         tapToSeek={true}
         step={1}
         onSlidingComplete={(val)=>changeHandler(setIntensity,val)}
@@ -87,20 +87,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#d90429",
     alignItems: "center",
-    justifyContent: "space-around",
-  },
-  secondaryBG: {
-    width: "85%",
-    flex: 1,
-    // backgroundColor: "black",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    borderRadius: 30,
-  },
-  text: {
-    color: "#edf2f4",
-    fontSize: 20,
-    textAlign: "center",
+    justifyContent: "space-between",
+    paddingTop:90,
+    paddingBottom:60
   },
   button: {
     //   backgroundColor: "#edf2f499",
@@ -116,7 +105,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    alignSelf:"center"
+    alignSelf:"center",
+    marginBottom:75
 
     //  backgroundColor:"white"
   },
@@ -127,15 +117,24 @@ const styles = StyleSheet.create({
     margin:15,
     padding:5,
     alignItems:"center",
+
   },
   sliderText:{
-    color:"#edf2f4",
-    fontSize:25,
-    textAlign:"center",
-    marginBottom:5
+    color:"#d90429",
+    fontSize:18,
+    alignSelf:"center",
+    marginBottom:5,
+    marginLeft:10
   },
   slidersContainer:{
-  margin:5
+  margin:5,
+  backgroundColor:"#edf2f4",
+  //d90429
+  borderRadius:15,
+  maxWidth:"85%",
+  justifyContent:"center",
+  alignItems:"center",
+  paddingBottom:15
   }
 });
 export default Page2;

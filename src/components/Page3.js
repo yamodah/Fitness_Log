@@ -95,7 +95,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#d90429",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    paddingTop:100,
+    paddingBottom:150
   },
   secondaryBG: {
     width: "85%",
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-
+    // marginBottom:50
     //  backgroundColor:"white"
   },
   largeTextBoxContainer: {
