@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity,Keyboard,TouchableWithoutFeedback } from 'react-native'
-
+import { useData } from "./GlobalContext";
+import Cardio from './typeElements/Cardio';
 const Page4 = ({navigation,route}) => {
   const [bodyParts, setBodyParts]=useState(new Set())
   const [sport, setSport]=useState("")
@@ -11,28 +12,22 @@ const Page4 = ({navigation,route}) => {
   const [speed, setSpeed]=useState(0)
   const [show,setShow]=useState(false)
   const {type}= route.params
+  const dataPack = useData();
+
   const changeHandler = (setMethod, value) => {
     setMethod(value);
   };
+  console.log(dataPack.data)
   const collectData = ()=>{
     dataPack.setData({
       
       ...dataPack.data
-    })
+    }).then((data)=>console.log(data))
     navigation.navigate("Page4",dataPack.data.type)
   }
-  // console.log(type)
     return (
         <View style={styles.container}>
-          <Text>workout specific info input page</Text>
-            <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Home")}}>
-              <Text style={styles.buttonText}>Submit</Text>
-            </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={()=>{navigation.goBack()}}>
-              <Text style={styles.buttonText}>Go back</Text>
-            </TouchableOpacity>
-          </View>
+          <Cardio navigation={navigation}/>
         </View>
     )
 }
