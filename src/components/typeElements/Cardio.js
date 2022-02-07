@@ -14,7 +14,7 @@ const Cardio = ({ navigation }) => {
 
   const dataPack = useData();
   const [cardio_type, setCardioType] = useState("");
-  const [distance, setDistance] = useState("");
+  const [distance, setDistance] = useState(null);
   const [speed, setSpeed] = useState("");
 
   const changeHandler = (setMethod, value) => {
@@ -27,8 +27,8 @@ const Cardio = ({ navigation }) => {
       cardio_type,
       distance:Number(distance),
       speed
-    }).then((dat)=>console.log(dat));
-    navigation.navigate("Page2");
+    })
+    navigation.navigate("Home");
   };
 
   return (
