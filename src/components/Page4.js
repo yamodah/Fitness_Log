@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View,TouchableOpacity,Keyboard,TouchableWithoutFeedback } from 'react-native'
 import { useData } from "./GlobalContext";
 import Cardio from './typeElements/Cardio';
+import Sports from './typeElements/Sports';
 const Page4 = ({navigation,route}) => {
   const [bodyParts, setBodyParts]=useState(new Set())
   const [sport, setSport]=useState("")
@@ -27,7 +28,8 @@ const Page4 = ({navigation,route}) => {
   }
     return (
         <View style={styles.container}>
-          <Cardio navigation={navigation}/>
+          {type==="Cardio" && <Cardio navigation={navigation}/>}
+          {type==="Sports" && <Sports navigation={navigation}/>}
         </View>
     )
 }

@@ -22,14 +22,15 @@ const Sports = ({ navigation }) => {
     setMethod(value);
   };
 
-  const collectData = () => {
-    dataPack.setData({
+  const collectData =  () => {
+     dataPack.setData({
       ...dataPack.data,
       sport,
       venue,
       competition
-    }).then((dat)=>console.log(dat));
-    navigation.navigate("Home");
+    })
+    console.log(dataPack.data)
+    // navigation.navigate("Home");
   };
 
   return (
@@ -44,7 +45,7 @@ const Sports = ({ navigation }) => {
               onChange={({ nativeEvent }) =>
                 changeHandler(setSport, nativeEvent.text)
               }
-              placeholder="general fitness"
+              placeholder="soccer, tennis, basketball, etc ..."
               maxLength={140}
               value={sport}
               multiline
@@ -61,26 +62,14 @@ const Sports = ({ navigation }) => {
             <Text style={styles.inputLabel}>Venue:</Text>
             <TextInput
               style={{ maxWidth: "100%", padding: 5, minWidth: "100%" }}
-              keyboardType="number-pad"
+              keyboardType="default"
               onChange={({ nativeEvent }) =>
                 changeHandler(setVenue, nativeEvent.text)
               }
-              placeholder="general fitness"
+              placeholder="indoor turf, outdoor grass, cement courts, etc ..."
               maxLength={140}
               value={venue}
-              multiline
             />
-            <TouchableOpacity
-              onPress={Keyboard.dismiss}
-              accessible={false}
-              style={{ alignSelf: "flex-end" }}
-            >
-              <Text style={styles.internalDoneLabel}>Next</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{ margin: 15 }}>
-            <Text style={styles.inputLabel}>Competition :</Text>
-            <Checkbox value={competition} onChange={setCompetition}/>
             <TouchableOpacity
               onPress={Keyboard.dismiss}
               accessible={false}
@@ -88,6 +77,10 @@ const Sports = ({ navigation }) => {
             >
               <Text style={styles.internalDoneLabel}>Done</Text>
             </TouchableOpacity>
+          </View>
+          <View style={{ margin: 15, display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+            <Text style={styles.inputLabel}>Competition ?</Text>
+            <Checkbox style={{marginLeft:"55%"}}value={competition} onValueChange={setCompetition}/>
           </View>
         </View>
         <View style={styles.buttonContainer}>
