@@ -5,9 +5,11 @@ import { deleteWorkout } from '../utils/api'
 const Logs = ({navigation}) => {
     const [logs,setLogs]=useState([])
     useEffect(()=>{
-        loadWorkouts
+        const ac = new AbortController()
+        loadWorkouts(ac.signal)
+        return ()=>ac.abort()
     },[])
-    const loadWorkouts =listWorkouts().then((res)=>setLogs(res.data.data)).catch(console.error)
+    const loadWorkouts=(signal)=>listWorkouts({signal}).then((res)=>setLogs(res.data.data)).catch(console.error)
     const confirmDelete = (id) =>{
        return Alert.alert(`Delete LOG#${id} ?`, 'this cannot be undone', [
             {

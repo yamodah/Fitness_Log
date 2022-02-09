@@ -2,12 +2,12 @@ import axios from "axios"
 
 
 
-export async function listWorkouts(){
-    const data =  await axios.get("https://yassine-fitness-api.herokuapp.com/workouts").catch(console.error)
+export async function listWorkouts(signal){
+    const data =  await axios.get("https://yassine-fitness-api.herokuapp.com/workouts",signal).catch(console.error)
     return data
 }
 export async function addWorkout(newWorkout){
-    console.log(newWorkout)
+    // console.log(newWorkout)
     await axios.post("https://yassine-fitness-api.herokuapp.com/workouts", newWorkout).catch((error)=>{
         console.error(error.response.data)
     })
