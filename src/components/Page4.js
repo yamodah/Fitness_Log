@@ -8,8 +8,8 @@ const Page4 = ({navigation,route}) => {
   const {type}= route.params
     return (
         <View style={styles.container}>
-          {type==="Cardio" && <Cardio navigation={navigation}/>}
-          {type==="Sports" && <Sports navigation={navigation}/>}
+          {type==="cardio" && <Cardio navigation={navigation}/>}
+          {type==="sports" && <Sports navigation={navigation}/>}
           {type==="resistance" && <Resistance navigation={navigation}/>}
         </View>
     )

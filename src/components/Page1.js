@@ -14,7 +14,7 @@ import { useData } from "./GlobalContext";
 const Page1 = ({ navigation }) => {
   const dataPack = useData();
   const [date, setDate] = useState(new Date());
-  const [type, setType] = useState("Sports");
+  const [type, setType] = useState("sports");
   const [duration, setDuration] = useState("");
   const [goal, setGoal] = useState("");
   const index = () => {

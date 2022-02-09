@@ -11,26 +11,32 @@ import {
 } from "react-native";
 
 import { useData } from "../GlobalContext";
+
 const Sports = ({ navigation }) => {
 
   const dataPack = useData();
   const [sport, setSport ] = useState("");
   const [venue, setVenue] = useState("");
-  const [competition, setCompetition] = useState(false);
+  const [competitive, setCompetitive] = useState(false);
 
   const changeHandler = (setMethod, value) => {
     setMethod(value);
   };
 
   const collectData =  () => {
-     dataPack.setData({
-      ...dataPack.data,
-      sport,
-      venue,
-      competition
-    })
-    console.log(dataPack.data)
-    // navigation.navigate("Home");
+     new Promise ((resolve,reject)=>{
+      dataPack.setData({
+        ...dataPack.data,
+        sport,
+        venue,
+        competitive
+      })
+      resolve()
+     }).then((data)=>{
+       console.log(data)
+        addWorkout(dataPack.data)
+     }).catch(console.error)
+
   };
 
   return (
@@ -80,7 +86,7 @@ const Sports = ({ navigation }) => {
           </View>
           <View style={{ margin: 15, display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
             <Text style={styles.inputLabel}>Competition ?</Text>
-            <Checkbox style={{marginLeft:"55%"}}value={competition} onValueChange={setCompetition}/>
+            <Checkbox style={{marginLeft:"55%"}}value={competitive} onValueChange={setCompetitive}/>
           </View>
         </View>
         <View style={styles.buttonContainer}>

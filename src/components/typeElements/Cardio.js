@@ -22,11 +22,16 @@ const Cardio = ({ navigation }) => {
   };
 
   const collectData = () => {
-    dataPack.setData({
-      ...dataPack.data,
-      cardio_type,
-      distance:Number(distance),
-      speed
+    new Promise((resolve,reject)=>{
+      dataPack.setData({
+        ...dataPack.data,
+        cardio_type,
+        distance:Number(distance),
+        speed
+      })
+      resolve(dataPack.data)
+    }).then((data)=>{
+      console.log(data)
     })
     navigation.navigate("Home");
   };

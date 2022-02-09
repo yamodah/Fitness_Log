@@ -28,9 +28,14 @@ const Resistance = ({navigation}) => {
     {value:"Full-Body"},
   ]
   const collectData = ()=>{
-    dataPack.setData({
-      ...dataPack.data,
-      bodyParts:bodyParts.join(", ")
+    new Promise((resolve,reject)=>{
+      dataPack.setData({
+        ...dataPack.data,
+        bodyParts:bodyParts.join(", ")
+      })
+      resolve(dataPack.data)
+    }).then((data)=>{
+      console.log(data)
     })
     navigation.navigate("Home");
   }

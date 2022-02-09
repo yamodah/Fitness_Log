@@ -7,8 +7,10 @@ export async function listWorkouts(){
     return data
 }
 export async function addWorkout(newWorkout){
-    const data =  await axios.post("https://yassine-fitness-api.herokuapp.com/workouts", newWorkout).catch(console.error)
-    return data
+    console.log(newWorkout)
+    await axios.post("https://yassine-fitness-api.herokuapp.com/workouts", newWorkout).catch((error)=>{
+        console.error(error.response.data)
+    })
 }
 export async function listWorkoutsByDate(workoutDate){
     const data =  await axios.get(`https://yassine-fitness-api.herokuapp.com/date/${workoutDate}`).catch(console.error)
@@ -23,7 +25,7 @@ export async function readWorkout(workoutId){
     return data
 }
 export async function changeWorkout(updatedWorkout){
-    const data =  await axios.put(`https://yassine-fitness-api.herokuapp.com/workout/${updatedWorkout.id}`,updatedNote).catch(console.error)
+    const data =  await axios.put(`https://yassine-fitness-api.herokuapp.com/workout/${updatedWorkout.id}`,updatedWorkout).catch(console.error)
     return data 
 }
 export async function deleteWorkour(workoutId){
