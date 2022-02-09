@@ -8,24 +8,28 @@ import SelectMultipleGroupButton from 'react-native-selectmultiple-button/librar
 //make  a set that holds body part names 
 const Resistance = ({navigation}) => {
   const [bodyParts, setBodyParts] = useState([])
-  const bodyPartOptions = {
-    value:"Biceps",
-    value:"Triceps",
-    value:"Hamstrings",
-    value:"Quads",
-    value:"Glute",
-    value:"Shoulders",
-    value:"Upper Back",
-    value:"Lower Back",
-    value:"Core",
-    value:"Full-Body",
-  }
+  const bodyPartOptions = [
+    {value:"Biceps"},
+    {value:"Triceps"},
+    {value:"Hamstrings"},
+    {value:"Quads"},
+    {value:"Glute"},
+    {value:"Shoulders"},
+    {value:"Upper Back"},
+    {value:"Lower Back"},
+    {value:"Core"},
+    {value:"Full-Body"},
+  ]
   return (
     <View style={styles.container}>
       <Text>I worked out {bodyParts.join("")}</Text>
       <SelectMultipleGroupButton
       group={bodyPartOptions}
-      
+      onSelectedValueChange={(selectedValues)=>{
+        setBodyParts([
+          selectedValues
+        ])
+      }}
       />
     </View>
   );
