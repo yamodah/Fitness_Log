@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import { useData } from "../GlobalContext";
-const Cardio = ({ navigation }) => {
+const Cardio = ({ navigation, modalToggle}) => {
 
   const dataPack = useData();
   const [cardio_type, setCardioType] = useState("");
@@ -29,11 +29,11 @@ const Cardio = ({ navigation }) => {
         distance:Number(distance),
         speed
       })
-      resolve(dataPack.data)
-    }).then((data)=>{
-      console.log(data)
+      resolve()
+    }).then(()=>{
+      modalToggle(true)
     })
-    navigation.navigate("Home");
+    // navigation.navigate("Home");
   };
 
   return (

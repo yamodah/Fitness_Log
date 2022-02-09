@@ -11,7 +11,7 @@ import React, {useState} from 'react';
 import SelectMultipleGroupButton from 'react-native-selectmultiple-button/libraries/SelectMultipleGroupButton';
 import { useData } from "../GlobalContext";
 
-const Resistance = ({navigation}) => {
+const Resistance = ({navigation, modalToggle}) => {
   const [bodyParts, setBodyParts] = useState([])
   const dataPack = useData();
 
@@ -31,13 +31,13 @@ const Resistance = ({navigation}) => {
     new Promise((resolve,reject)=>{
       dataPack.setData({
         ...dataPack.data,
-        bodyParts:bodyParts.join(", ")
+        body_parts:bodyParts.join(", ")
       })
-      resolve(dataPack.data)
-    }).then((data)=>{
-      console.log(data)
+      resolve()
+    }).then(()=>{
+      modalToggle(true)
     })
-    navigation.navigate("Home");
+    // navigation.navigate("Home");
   }
   return (
     <View style={styles.container}>
@@ -46,18 +46,17 @@ const Resistance = ({navigation}) => {
       <SelectMultipleGroupButton
       group={bodyPartOptions}
       containerViewStyle={{
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        width:275
       }}
       highLightStyle={{
         borderColor: "gray",
-    
-        backgroundColor: "transparent",
-    
+        backgroundColor: "white",
         textColor: "gray",
-    
-    
         backgroundTintColor: "transparent",
-    
+        borderRadius:15,
+        padding:10
+
       }}
       onSelectedValuesChange={(selectedValues)=>{
         setBodyParts([
