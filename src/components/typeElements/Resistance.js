@@ -37,14 +37,30 @@ const Resistance = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text>I worked out {bodyParts.join(", ")}</Text>
+      <View style={styles.largeTextBoxContainer}>
       <SelectMultipleGroupButton
       group={bodyPartOptions}
+      containerViewStyle={{
+        justifyContent: "flex-start"
+      }}
+      highLightStyle={{
+        borderColor: "gray",
+    
+        backgroundColor: "transparent",
+    
+        textColor: "gray",
+    
+    
+        backgroundTintColor: "transparent",
+    
+      }}
       onSelectedValuesChange={(selectedValues)=>{
         setBodyParts([
           ...selectedValues
         ])
       }}
       />
+      </View>
        <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
@@ -89,5 +105,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     // marginBottom:50
     //  backgroundColor:"white"
+  },
+  largeTextBoxContainer: {
+    maxHeight: "65%",
+    width: "75%",
+    backgroundColor: "#edf2f4",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flexDirection: "column",
+    borderRadius: 10,
   },
 });
