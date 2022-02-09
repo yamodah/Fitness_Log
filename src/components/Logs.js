@@ -19,6 +19,8 @@ const Logs = () => {
             </View>
             <View style={styles.textGroup}> 
             <Text style={styles.text}>GOAL: {item.goal}</Text>
+            <Text style={styles.text}>PAIN: {item.pain}</Text>
+            <Text style={styles.text}>PERFORMANCE: {item.performance}</Text>
             <Text style={styles.text}>PRE: {item.pre} || POST: {item.post} || INTENSITY: {item.intensity}</Text>
            {item.type ==="resistance" && <Text style={styles.text}>BODY PARTS: {item.body_parts}</Text>}
            {item.type ==="sports" && <View><Text style={styles.text}>SPORT: {item.sport} || AT/IN: {item.venue}</Text><Text style={styles.text}>COMPETITION: {item.competion?"YES":"NO"}</Text></View>}

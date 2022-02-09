@@ -12,7 +12,7 @@ import {
 
 import { useData } from "../GlobalContext";
 
-const Sports = ({ navigation }) => {
+const Sports = ({ navigation, modalToggle }) => {
 
   const dataPack = useData();
   const [sport, setSport ] = useState("");
@@ -32,9 +32,8 @@ const Sports = ({ navigation }) => {
         competitive
       })
       resolve()
-     }).then((data)=>{
-       console.log(data)
-        addWorkout(dataPack.data)
+     }).then(()=>{
+       modalToggle(true)
      }).catch(console.error)
 
   };
