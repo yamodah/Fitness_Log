@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  TextInput,
+  Keyboard,
+} from "react-native";
 import React, {useState} from 'react';
 import SelectMultipleGroupButton from 'react-native-selectmultiple-button/libraries/SelectMultipleGroupButton';
 import { useData } from "../GlobalContext";
@@ -37,6 +45,19 @@ const Resistance = ({navigation}) => {
         ])
       }}
       />
+       <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <Text style={styles.buttonText}>Go Back</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={collectData}>
+            <Text style={styles.buttonText}>Submit</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 };
@@ -51,5 +72,22 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingTop:100,
     paddingBottom:150
-  }
+  },
+  button: {
+    //   backgroundColor: "#edf2f499",
+    borderRadius: 10,
+    padding: 10,
+    margin: 15,
+    //   width:145,
+  },
+  buttonText: {
+    color: "#edf2f4",
+    textAlign: "center",
+    fontSize: 24,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    // marginBottom:50
+    //  backgroundColor:"white"
+  },
 });
