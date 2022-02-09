@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,TouchableOpacity,Keyboard,TouchableWithoutFeedba
 import { useData } from "./GlobalContext";
 import Cardio from './typeElements/Cardio';
 import Sports from './typeElements/Sports';
+import Resistance from './typeElements/Resistance';
 const Page4 = ({navigation,route}) => {
   const [bodyParts, setBodyParts]=useState(new Set())
   const [sport, setSport]=useState("")
@@ -30,6 +31,7 @@ const Page4 = ({navigation,route}) => {
         <View style={styles.container}>
           {type==="Cardio" && <Cardio navigation={navigation}/>}
           {type==="Sports" && <Sports navigation={navigation}/>}
+          {type==="resistance" && <Resistance navigation={navigation}/>}
         </View>
     )
 }

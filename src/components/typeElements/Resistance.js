@@ -22,12 +22,12 @@ const Resistance = ({navigation}) => {
   ]
   return (
     <View style={styles.container}>
-      <Text>I worked out {bodyParts.join("")}</Text>
+      <Text>I worked out {bodyParts.join(", ")}</Text>
       <SelectMultipleGroupButton
       group={bodyPartOptions}
-      onSelectedValueChange={(selectedValues)=>{
+      onSelectedValuesChange={(selectedValues)=>{
         setBodyParts([
-          selectedValues
+          ...selectedValues
         ])
       }}
       />
