@@ -6,6 +6,10 @@ export async function listWorkouts(){
     const data =  await axios.get("https://yassine-fitness-api.herokuapp.com/workouts").catch(console.error)
     return data
 }
+export async function addWorkout(newWorkout){
+    const data =  await axios.post("https://yassine-fitness-api.herokuapp.com/workouts", newWorkout).catch(console.error)
+    return data
+}
 export async function listWorkoutsByDate(workoutDate){
     const data =  await axios.get(`https://yassine-fitness-api.herokuapp.com/date/${workoutDate}`).catch(console.error)
     return data
