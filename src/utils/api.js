@@ -28,6 +28,8 @@ export async function changeWorkout(updatedWorkout){
     const data =  await axios.put(`https://yassine-fitness-api.herokuapp.com/workout/${updatedWorkout.id}`,updatedWorkout).catch(console.error)
     return data 
 }
-export async function deleteWorkour(workoutId){
-    await axios.delete(`https://yassine-fitness-api.herokuapp.com/workout/${workoutId}`).catch(console.error)
+export async function deleteWorkout(workoutId){
+    await axios.delete(`https://yassine-fitness-api.herokuapp.com/workouts/workout/${workoutId}`).catch((error)=>{
+        console.error(error.response.data)
+    })
 }
