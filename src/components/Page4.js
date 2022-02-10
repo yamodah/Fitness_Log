@@ -10,8 +10,8 @@ const Page4 = ({navigation,route}) => {
   const dataPack = useData()
   const {type}= route.params
   const currentWorkout = Object.entries(dataPack.data).map(([key,value],index)=>{
-    return(<View key={index} style={{margin:5, flexDirection:"row",width:"89%"}}>
-      <Text style={{fontSize:18, color:"red"}}>{`${key}:`}</Text>
+    return(<View key={index} style={{margin:5, flexDirection:"row",width:"89%", }}>
+      <Text style={{fontSize:18, color:"red", marginRight:10}}>{`${key}:`}</Text>
       <Text style={{fontSize:18, flexShrink:1}}>{`${value}`}</Text>
     </View>)
   })
@@ -27,13 +27,14 @@ const Page4 = ({navigation,route}) => {
           
           >
           <View style={styles.modalContainer}>
-            <View style={{width:240}}>
-              <Text style={{color:"white"}}>
+            <View style={{width:240,backgroundColor:"#2b2d42", borderRadius:10, borderWidth:1, padding:7, borderColor:"white", marginTop:100, width:"85%"}}>
+              <Text style={{color:"white", fontSize:18, textAlign:"center"}}>
                 Does this information look correct ?
                 if so feel please submit 
               </Text>
             </View>
-            <View style={{backgroundColor:"white", borderRadius:15, padding:20, maxWidth:"85%"}}>
+            <View style={{backgroundColor:"white", borderRadius:15, padding:20, width:"85%", borderColor:"#2b2d42",
+      borderWidth:1}}>
             {currentWorkout}
             </View>
           <View style={styles.buttonContainer}>
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
       backgroundColor: "#EE8B98",
       alignItems: "center",
       justifyContent: "space-evenly",
+      
     },
     button: {
       backgroundColor: "#27293C",
