@@ -29,6 +29,7 @@ const Page2 = ({ navigation, route }) => {
   // console.log(dataPack.data)
   return (
     <View style={styles.container}>
+      
       <View style={styles.slidersContainer}>
         <View style={styles.sliderContainer}>
           <Text style={styles.sliderText}>Pre exercise</Text>
@@ -46,8 +47,8 @@ const Page2 = ({ navigation, route }) => {
             style={{ width: 245, height: 40 }}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="#d90429"
-            maximumTrackTintColor="#2b2d42"
+            minimumTrackTintColor="white"
+            maximumTrackTintColor="#5C6378"
             tapToSeek={true}
             step={1}
             onSlidingComplete={(val) => changeHandler(setPre, val)}
@@ -69,8 +70,8 @@ const Page2 = ({ navigation, route }) => {
             style={{ width: 245, height: 40 }}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="#d90429"
-            maximumTrackTintColor="#2b2d42"
+            minimumTrackTintColor="white"
+            maximumTrackTintColor="#5C6378"
             tapToSeek={true}
             step={1}
             onSlidingComplete={(val) => changeHandler(setPost, val)}
@@ -92,8 +93,8 @@ const Page2 = ({ navigation, route }) => {
             style={{ width: 245, height: 40 }}
             minimumValue={0}
             maximumValue={100}
-            minimumTrackTintColor="#d90429"
-            maximumTrackTintColor="#2b2d42"
+            minimumTrackTintColor="white"
+            maximumTrackTintColor="#5C6378"
             tapToSeek={true}
             step={1}
             onSlidingComplete={(val) => changeHandler(setIntensity, val)}
@@ -102,7 +103,7 @@ const Page2 = ({ navigation, route }) => {
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.buttonCancel}
           onPress={() => {
             navigation.goBack();
           }}
@@ -126,15 +127,23 @@ const styles = StyleSheet.create({
     paddingBottom: 60,
   },
   button: {
-    backgroundColor: "#27293C",
-    borderRadius: 10,
-    padding: 10,
-    margin: 15,
+    backgroundColor: "#8CAD8E",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
     width:115,
     borderColor:"white",
-    borderWidth:1
-    //   width:145,
-  },
+  borderWidth:1
+},
+buttonCancel: {
+    backgroundColor: "#EF233C",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",
@@ -154,10 +163,11 @@ const styles = StyleSheet.create({
     margin: 15,
     padding: 5,
     alignItems: "center",
-    marginBottom:0
+    marginBottom:0,
+
   },
   sliderText: {
-    color: "#d90429",
+    color: "white",
     fontSize: 18,
     alignSelf: "center",
     marginBottom: 5,
@@ -165,13 +175,15 @@ const styles = StyleSheet.create({
   },
   slidersContainer: {
     margin: 5,
-    backgroundColor: "#edf2f4",
+    backgroundColor: "#27293C",
     //d90429
     borderRadius: 15,
     maxWidth: "85%",
     justifyContent: "center",
     alignItems: "center",
     paddingBottom: 15,
+    borderWidth:1,
+    borderColor:"white"
   },
 });
 export default Page2;

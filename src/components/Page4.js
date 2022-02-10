@@ -11,7 +11,7 @@ const Page4 = ({navigation,route}) => {
   const {type}= route.params
   const currentWorkout = Object.entries(dataPack.data).map(([key,value],index)=>{
     return(<View key={index} style={{margin:5, flexDirection:"row",width:"89%", }}>
-      <Text style={{fontSize:18, color:"red", marginRight:10}}>{`${key}:`}</Text>
+      <Text style={{fontSize:18, color:"white", marginRight:10}}>{`${key}:`}</Text>
       <Text style={{fontSize:18, flexShrink:1}}>{`${value}`}</Text>
     </View>)
   })
@@ -33,13 +33,13 @@ const Page4 = ({navigation,route}) => {
                 if so feel please submit 
               </Text>
             </View>
-            <View style={{backgroundColor:"white", borderRadius:15, padding:20, width:"85%", borderColor:"#2b2d42",
-      borderWidth:1}}>
+            <View style={{backgroundColor:"#8D99AE", borderRadius:15, padding:20, width:"85%", borderColor:"white",
+      borderWidth:5, marginTop:15}}>
             {currentWorkout}
             </View>
           <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               setVisible(!visible)
             }}
@@ -50,6 +50,7 @@ const Page4 = ({navigation,route}) => {
             addWorkout(dataPack.data)
             .then(()=>{ 
               setVisible(false)
+              dataPack.setData({})
               navigation.navigate("Home")
             }).catch(console.error)
           }}>
@@ -72,21 +73,29 @@ const styles = StyleSheet.create({
     },
     modalContainer: {
       flex: 1,
-      backgroundColor: "#EE8B98",
+      backgroundColor: "#27293C",
       alignItems: "center",
       justifyContent: "space-evenly",
       
     },
     button: {
-      backgroundColor: "#27293C",
-      borderRadius: 10,
-      padding: 10,
-      margin: 15,
+      backgroundColor: "#8CAD8E",
+    borderRadius: 10,
+    padding: 10,
+    margin: 15,
       width:115,
       borderColor:"white",
-      borderWidth:1
-      //   width:145,
-    },
+    borderWidth:1
+  },
+  buttonCancel: {
+      backgroundColor: "#EF233C",
+    borderRadius: 10,
+    padding: 10,
+    margin: 15,
+      width:115,
+      borderColor:"white",
+    borderWidth:1
+  },
     buttonText: {
       color: "#edf2f4",
       textAlign: "center",

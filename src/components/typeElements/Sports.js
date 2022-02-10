@@ -41,6 +41,8 @@ const Sports = ({ navigation, modalToggle }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
+      <View style={{width:"85%", justifyContent:"center", alignItems:"center", height:275, backgroundColor:"#27293C", padding:15, borderRadius:10, borderColor:"white", borderWidth:1}}>
+
       <View style={styles.largeTextBoxContainer}>
           <View style={{ margin: 15 }}>
             <Text style={styles.inputLabel}>Which Sport:</Text>
@@ -88,9 +90,10 @@ const Sports = ({ navigation, modalToggle }) => {
             <Checkbox style={{marginLeft:"55%"}}value={competitive} onValueChange={setCompetitive}/>
           </View>
         </View>
+      </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               navigation.goBack();
             }}
@@ -98,7 +101,7 @@ const Sports = ({ navigation, modalToggle }) => {
             <Text style={styles.buttonText}>Go Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={collectData}>
-            <Text style={styles.buttonText}>Submit</Text>
+            <Text style={styles.buttonText}>Done</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -128,14 +131,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#27293C",
-    borderRadius: 10,
-    padding: 10,
-    margin: 15,
-      width:115,
-      borderColor:"white",
-    borderWidth:1
-  },
+    backgroundColor: "#8CAD8E",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
+buttonCancel: {
+    backgroundColor: "#EF233C",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",
@@ -147,8 +159,8 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
   },
   largeTextBoxContainer: {
-    maxHeight: "65%",
-    width: "75%",
+    maxHeight: 250,
+    width: "95%",
     backgroundColor: "#edf2f4",
     justifyContent: "flex-start",
     alignItems: "flex-start",

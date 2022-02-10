@@ -57,16 +57,16 @@ const Resistance = ({navigation, modalToggle}) => {
         padding:10,
         backgroundColor:"white",
         borderRadius:10,
-        borderWidth:1,
-        borderColor:"white"
+        borderWidth:5,
+        borderColor:"#8D99AE"
 
       }}
       highLightStyle={{
         borderColor: "gray",
-        backgroundColor: "#27293C",
-        textColor: "white",
+        backgroundColor: "transparent",
+        textColor: "#27293C",
         borderTintColor: "#27293C",
-        backgroundTintColor: "#d90429",
+        backgroundTintColor: "#EF233C",
         textTintColor: "white",
         borderWidth:1
 
@@ -80,7 +80,7 @@ const Resistance = ({navigation, modalToggle}) => {
       </View>
        <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               navigation.goBack();
             }}
@@ -88,7 +88,7 @@ const Resistance = ({navigation, modalToggle}) => {
             <Text style={styles.buttonText}>Go Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={collectData}>
-            <Text style={styles.buttonText}>Submit</Text>
+            <Text style={styles.buttonText}>Done</Text>
           </TouchableOpacity>
         </View>
     </View>
@@ -107,14 +107,23 @@ const styles = StyleSheet.create({
     paddingBottom:150
   },
   button: {
-    backgroundColor: "#27293C",
-    borderRadius: 10,
-    padding: 10,
-    margin: 15,
-      width:115,
-      borderColor:"white",
-    borderWidth:1
-  },
+    backgroundColor: "#8CAD8E",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
+buttonCancel: {
+    backgroundColor: "#EF233C",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",

@@ -39,6 +39,8 @@ const Cardio = ({ navigation, modalToggle}) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
+      <View style={{width:"100%", justifyContent:"center", alignItems:"center", height:300, backgroundColor:"#27293C", padding:15, borderRadius:10, borderColor:"white", borderWidth:1}}>
+
       <View style={styles.largeTextBoxContainer}>
           <View style={{ margin: 15 }}>
             <Text style={styles.inputLabel}>Type of Cardio</Text>
@@ -48,10 +50,9 @@ const Cardio = ({ navigation, modalToggle}) => {
               onChange={({ nativeEvent }) =>
                 changeHandler(setCardioType, nativeEvent.text)
               }
-              placeholder="general fitness"
+              placeholder="running, jump roping, biking, etc ..."
               maxLength={140}
               value={cardio_type}
-              multiline
             />
             <TouchableOpacity
               onPress={Keyboard.dismiss}
@@ -69,10 +70,10 @@ const Cardio = ({ navigation, modalToggle}) => {
               onChange={({ nativeEvent }) =>
                 changeHandler(setDistance, nativeEvent.text)
               }
-              placeholder="general fitness"
+              placeholder="in miles"
               maxLength={140}
               value={distance}
-              multiline
+              returnKeyType="done"
             />
             <TouchableOpacity
               onPress={Keyboard.dismiss}
@@ -90,10 +91,10 @@ const Cardio = ({ navigation, modalToggle}) => {
               onChange={({ nativeEvent }) =>
                 changeHandler(setSpeed, nativeEvent.text)
               }
-              placeholder="general fitness"
+              placeholder="in miles per hour"
               maxLength={140}
               value={speed}
-              multiline
+              returnKeyType="done"
             />
             <TouchableOpacity
               onPress={Keyboard.dismiss}
@@ -104,9 +105,10 @@ const Cardio = ({ navigation, modalToggle}) => {
             </TouchableOpacity>
           </View>
         </View>
+      </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               navigation.goBack();
             }}
@@ -114,7 +116,7 @@ const Cardio = ({ navigation, modalToggle}) => {
             <Text style={styles.buttonText}>Go Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={collectData}>
-            <Text style={styles.buttonText}>Submit</Text>
+            <Text style={styles.buttonText}>Done</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2b2d42",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingTop:100,
+    paddingTop:60,
     paddingBottom:150
   },
   secondaryBG: {
@@ -144,14 +146,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#27293C",
-    borderRadius: 10,
-    padding: 10,
-    margin: 15,
-      width:115,
-      borderColor:"white",
-    borderWidth:1
-  },
+    backgroundColor: "#8CAD8E",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
+buttonCancel: {
+    backgroundColor: "#EF233C",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",
@@ -163,7 +174,7 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
   },
   largeTextBoxContainer: {
-    maxHeight: "65%",
+    maxHeight: "100%",
     width: "75%",
     backgroundColor: "#edf2f4",
     justifyContent: "flex-start",

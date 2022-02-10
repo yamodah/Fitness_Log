@@ -12,14 +12,16 @@ const Home = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
         <View style={styles.secondaryBG}>
+        <View style={{width:"55%", justifyContent:"center", alignItems:"center", height:100, backgroundColor:"#101119", padding:15,paddingBottom:20, borderRadius:10, borderColor:"white", borderWidth:1}}>
           <Text style={styles.text}>Fitness Log</Text>
+        </View>
           <StatusBar style="light" />
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Logs")}}>
-              <Text style={styles.buttonText}>Activity Log</Text>
+              <Text style={styles.buttonText}>Activity Logs</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate("Page1")}}>
+            <TouchableOpacity style={styles.buttonAdd} onPress={()=>{navigation.navigate("Page1")}}>
               <Text style={styles.buttonText}>Add Activity</Text>
             </TouchableOpacity>
           </View>
@@ -44,11 +46,21 @@ const styles = StyleSheet.create({
     },
     text: {
       color: "#edf2f4",
-      fontSize: 50,
+      fontSize: 30,
       textAlign:"center"
     },
     button: {
-      backgroundColor: "#27293C",
+      backgroundColor: "#8F8CAD",
+      borderRadius: 10,
+      padding: 10,
+      margin: 15,
+      // width:115,
+      borderColor:"white",
+      borderWidth:1
+      
+    },
+    buttonAdd: {
+      backgroundColor: "#8CAD8E",
       borderRadius: 10,
       padding: 10,
       margin: 15,

@@ -12,7 +12,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 import { useData } from "./GlobalContext";
 const Page1 = ({ navigation }) => {
-  const dataPack = useData();
+  const dataPack = new useData();
   const [date, setDate] = useState(new Date());
   const [type, setType] = useState("sports");
   const [duration, setDuration] = useState("");
@@ -40,6 +40,8 @@ const Page1 = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
+        <View style={{width:"85%", justifyContent:"space-between", alignItems:"center", height:300, backgroundColor:"#27293C", padding:15,paddingBottom:20, borderRadius:10, borderColor:"white", borderWidth:1}}>
+
         <View style={styles.dateContainer}>
           <Text style={styles.labelText}>Date:</Text>
           <DateTimePicker
@@ -102,9 +104,10 @@ const Page1 = ({ navigation }) => {
 
           </TouchableOpacity>
         </View>
+        </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               navigation.navigate("Home");
             }}
@@ -134,7 +137,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-      backgroundColor: "#27293C",
+      backgroundColor: "#8CAD8E",
+    borderRadius: 10,
+    padding: 10,
+    margin: 15,
+      width:115,
+      borderColor:"white",
+    borderWidth:1
+  },
+  buttonCancel: {
+      backgroundColor: "#EF233C",
     borderRadius: 10,
     padding: 10,
     margin: 15,
@@ -162,16 +174,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 250,
-    color: "#edf2f4",
+    color: "white",
     // marginBottom: 15,
     marginTop: 5,
   },
   labelText: {
-    color: "#edf2f4",
+    color: "white",
     fontSize: 18,
   },
   segements: {
-    width: "80%",
+    width: "100%",
     justifyContent: "center",
     marginBottom: 10,
     // backgroundColor: "#edf2f4",
@@ -182,17 +194,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 20,
     maxWidth: 65,
-    backgroundColor: "#edf2f4",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "space-between",
     paddingRight: 10,
     paddingLeft: 10,
     flexDirection: "row",
+    // alignSelf:"flex-start"
   },
   goalContainer: {
     maxHeight: "65%",
-    width: "75%",
-    backgroundColor: "#edf2f4",
+    width: "95%",
+    backgroundColor: "white",
     justifyContent: "flex-start",
     alignItems: "flex-start",
     flexDirection: "column",

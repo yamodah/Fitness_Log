@@ -28,6 +28,8 @@ const Page3 = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
+      <View style={{width:"85%", justifyContent:"center", alignItems:"center", height:250, backgroundColor:"#27293C",  borderRadius:10, borderColor:"white", borderWidth:1}}>
+
         <View style={styles.largeTextBoxContainer}>
           <View style={{ margin: 15 }}>
             <Text style={styles.inputLabel}>Pain(s):</Text>
@@ -72,10 +74,11 @@ const Page3 = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+      </View>
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.buttonCancel}
             onPress={() => {
               navigation.goBack();
             }}
@@ -113,15 +116,23 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#27293C",
-    borderRadius: 10,
-    padding: 10,
-    margin: 15,
+    backgroundColor: "#8CAD8E",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
     width:115,
     borderColor:"white",
-    borderWidth:1
-    //   width:145,
-  },
+  borderWidth:1
+},
+buttonCancel: {
+    backgroundColor: "#EF233C",
+  borderRadius: 10,
+  padding: 10,
+  margin: 15,
+    width:115,
+    borderColor:"white",
+  borderWidth:1
+},
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",
@@ -133,8 +144,8 @@ const styles = StyleSheet.create({
     //  backgroundColor:"white"
   },
   largeTextBoxContainer: {
-    maxHeight: "65%",
-    width: "75%",
+    maxHeight: "95%",
+    width: "85%",
     backgroundColor: "#edf2f4",
     justifyContent: "flex-start",
     alignItems: "flex-start",
