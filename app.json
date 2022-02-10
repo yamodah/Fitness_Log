@@ -6,9 +6,9 @@
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "splash": {
-      "image": "./src/assets/stencil-splash.png",
+      "image": "./src/assets/stencil-dark.png",
       "resizeMode": "cover",
-      "backgroundColor": "#ef233c"
+      "backgroundColor": "#2b2d42"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +22,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/adaptive-icon.png",
-        "backgroundColor": "#ef233c"
+        "backgroundColor": "#2b2d42"
       }
     },
     "web": {

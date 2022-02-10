@@ -122,10 +122,11 @@ const Page1 = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d90429",
+    backgroundColor: "#2b2d42",
     alignItems: "center",
     justifyContent: "space-evenly",
     paddingBottom: 80,
+    paddingTop:50
   },
   text: {
     color: "#edf2f4",
@@ -133,22 +134,26 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    //   backgroundColor: "#edf2f499",
+      backgroundColor: "#27293C",
     borderRadius: 10,
     padding: 10,
     margin: 15,
-    //   width:145,
+      width:115,
+      borderColor:"white",
+    borderWidth:1
   },
   buttonText: {
     color: "#edf2f4",
     textAlign: "center",
     fontSize: 24,
+    
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 100,
+    
     // alignSelf:"flex-start"
     //  backgroundColor:"white"
   },
@@ -158,12 +163,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 250,
     color: "#edf2f4",
-    marginBottom: 15,
+    // marginBottom: 15,
     marginTop: 5,
   },
   labelText: {
     color: "#edf2f4",
-    fontSize: 23,
+    fontSize: 18,
   },
   segements: {
     width: "80%",
@@ -197,20 +202,20 @@ const styles = StyleSheet.create({
   inputLabel: {
     marginLeft: 50,
     color: "#edf2f4",
-    fontSize: 23,
+    fontSize: 18,
     alignSelf: "flex-start",
   },
   internalLabel: {
     marginLeft: 10,
     marginTop: 5,
     color: "#d90429",
-    fontSize: 15,
+    fontSize: 18,
   },
   internalDoneLabel: {
     marginLeft: 10,
     marginTop: 5,
     color: "#d90429",
-    fontSize: 15,
+    fontSize: 18,
     alignSelf: "flex-end",
   },
   longInputLabel: {

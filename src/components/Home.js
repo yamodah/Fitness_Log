@@ -30,7 +30,7 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#d90429",
+      backgroundColor: "#2b2d42",
       alignItems: "center",
       justifyContent: "center",
     },
@@ -48,11 +48,13 @@ const styles = StyleSheet.create({
       textAlign:"center"
     },
     button: {
-    //   backgroundColor: "#edf2f499",
+      backgroundColor: "#27293C",
       borderRadius: 10,
       padding: 10,
-      margin:15,
-    //   width:145,
+      margin: 15,
+      // width:115,
+      borderColor:"white",
+      borderWidth:1
       
     },
     buttonText: {

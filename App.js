@@ -14,7 +14,7 @@ export default function App() {
 
   const options={
     headerStyle: {
-      backgroundColor: '#ef233c99',
+      backgroundColor: '#27293C',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {

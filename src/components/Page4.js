@@ -10,8 +10,9 @@ const Page4 = ({navigation,route}) => {
   const dataPack = useData()
   const {type}= route.params
   const currentWorkout = Object.entries(dataPack.data).map(([key,value],index)=>{
-    return(<View key={index} >
-      <Text>{`${key}: ${value}`}</Text>
+    return(<View key={index} style={{margin:5, flexDirection:"row",width:"89%"}}>
+      <Text style={{fontSize:18, color:"red"}}>{`${key}:`}</Text>
+      <Text style={{fontSize:18, flexShrink:1}}>{`${value}`}</Text>
     </View>)
   })
  
@@ -25,8 +26,14 @@ const Page4 = ({navigation,route}) => {
           visible={visible}
           
           >
-          <View style={styles.container}>
-            <View style={{backgroundColor:"white", borderRadius:15, padding:10, maxWidth:250}}>
+          <View style={styles.modalContainer}>
+            <View style={{width:240}}>
+              <Text style={{color:"white"}}>
+                Does this information look correct ?
+                if so feel please submit 
+              </Text>
+            </View>
+            <View style={{backgroundColor:"white", borderRadius:15, padding:20, maxWidth:"85%"}}>
             {currentWorkout}
             </View>
           <View style={styles.buttonContainer}>
@@ -57,14 +64,25 @@ const Page4 = ({navigation,route}) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#d90429",
+      backgroundColor: "#2b2d42",
       alignItems: "center",
       justifyContent: "center",
-    },button: {
-      //   backgroundColor: "#edf2f499",
+      paddingTop:55
+    },
+    modalContainer: {
+      flex: 1,
+      backgroundColor: "#EE8B98",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+    },
+    button: {
+      backgroundColor: "#27293C",
       borderRadius: 10,
       padding: 10,
       margin: 15,
+      width:115,
+      borderColor:"white",
+      borderWidth:1
       //   width:145,
     },
     buttonText: {

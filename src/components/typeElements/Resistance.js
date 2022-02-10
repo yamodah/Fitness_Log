@@ -87,18 +87,20 @@ export default Resistance;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#d90429",
+    backgroundColor: "#2b2d42",
     alignItems: "center",
     justifyContent: "space-between",
     paddingTop:100,
     paddingBottom:150
   },
   button: {
-    //   backgroundColor: "#edf2f499",
+    backgroundColor: "#27293C",
     borderRadius: 10,
     padding: 10,
     margin: 15,
-    //   width:145,
+      width:115,
+      borderColor:"white",
+    borderWidth:1
   },
   buttonText: {
     color: "#edf2f4",
