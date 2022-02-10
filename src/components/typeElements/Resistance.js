@@ -14,18 +14,21 @@ import { useData } from "../GlobalContext";
 const Resistance = ({navigation, modalToggle}) => {
   const [bodyParts, setBodyParts] = useState([])
   const dataPack = useData();
+  const ios_blue = "#007AFF";
 
   const bodyPartOptions = [
+    {value:"Full-Body"},
+    {value:"Core"},
     {value:"Biceps"},
     {value:"Triceps"},
-    {value:"Hamstrings"},
+    {value:"Chest"},
+    {value:"Shoulders"},
     {value:"Quads"},
     {value:"Glute"},
-    {value:"Shoulders"},
-    {value:"Upper Back"},
-    {value:"Lower Back"},
-    {value:"Core"},
-    {value:"Full-Body"},
+    {value:"Calves"},
+    {value:"Hamstrings"},
+    {value:"Upper-Back"},
+    {value:"Lower-Back"},
   ]
   const collectData = ()=>{
     new Promise((resolve,reject)=>{
@@ -41,23 +44,33 @@ const Resistance = ({navigation, modalToggle}) => {
   }
   return (
     <View style={styles.container}>
-      <Text>I worked out {bodyParts.join(", ")}</Text>
+      <Text style={{color:"white", fontSize:20}}>I worked out: </Text>
+      <View style={{minWidth:"85%", backgroundColor:"#27293C", padding:15, borderRadius:10, borderColor:"white", borderWidth:1, maxWidth:"85%"}}>
+      <Text style={{textAlign:"center", color:"white"}}> {bodyParts.join(",  ")}</Text>
+      </View>
       <View style={styles.largeTextBoxContainer}>
       <SelectMultipleGroupButton
       group={bodyPartOptions}
       containerViewStyle={{
-        justifyContent: "flex-start",
-        width:275
+        justifyContent: "center",
+        width:275,
+        padding:10,
+        backgroundColor:"white",
+        borderRadius:10,
+        borderWidth:1,
+        borderColor:"white"
+
       }}
       highLightStyle={{
         borderColor: "gray",
-        backgroundColor: "white",
-        textColor: "gray",
-        backgroundTintColor: "transparent",
-        borderRadius:15,
-        padding:10
+        backgroundColor: "#27293C",
+        textColor: "white",
+        borderTintColor: "#27293C",
+        backgroundTintColor: "#d90429",
+        textTintColor: "white",
+        borderWidth:1
 
-      }}
+          }}
       onSelectedValuesChange={(selectedValues)=>{
         setBodyParts([
           ...selectedValues
@@ -90,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2b2d42",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingTop:100,
+    paddingTop:50,
     paddingBottom:150
   },
   button: {
