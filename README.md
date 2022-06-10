@@ -7,4 +7,5 @@ I set out to build a fitness activity log for my phone. I know these exists but 
 
 This is the working demo with some very basic styling. I do not plan on publishing this on the App Store this was primarily a personal endeavor to test my ability to use a framework I had no schooling on and build something for myself. Please share any critiques/suggestions/questions you have ! 
 
+###Click for demo!
 [![Watch the video](https://img.youtube.com/vi/rT-h-cbKzEA/maxresdefault.jpg)](https://www.youtube.com/watch?v=rT-h-cbKzEA)
